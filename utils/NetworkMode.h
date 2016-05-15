@@ -1,0 +1,12 @@
+//
+//  Copyright © 2016 Cody Price. All rights reserved.
+//
+
+#ifndef RESEARCHDNNGENERATOR_NETWORKMODE_H
+#define RESEARCHDNNGENERATOR_NETWORKMODE_H
+
+enum NetworkMode {
+    AUTOMATIC, THRESHOLD
+};
+
+#endif //RESEARCHDNNGENERATOR_NETWORKMODE_H

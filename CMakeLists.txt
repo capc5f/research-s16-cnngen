@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.5)
+project(ResearchDNNGenerator)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+set(SOURCE_FILES main.cpp layers/LayerBase.cpp layers/LayerBase.h layers/layer_helpers/Param.cpp layers/layer_helpers/Param.h layers/layer_helpers/LayerEnums.h layers/layer_helpers/LayerTypes.cpp layers/layer_helpers/LayerTypes.h layers/InnerProductLayer.cpp layers/InnerProductLayer.h layers/ConvolutionLayer.cpp layers/ConvolutionLayer.h layers/PoolingLayer.cpp layers/PoolingLayer.h layers/ReLULayer.cpp layers/ReLULayer.h layers/InnerProductLayer.cpp layers/InnerProductLayer.h layers/LRNLayer.cpp layers/LRNLayer.h layers/SoftmaxLayer.cpp layers/SoftmaxLayer.h prototxt/Prototxt.cpp prototxt/Prototxt.h ece8270project/Image.cpp ece8270project/Image.h ece8270project/Channel.cpp ece8270project/Channel.h layers/InputLayer.cpp layers/InputLayer.h layers/InnerProductLayer.cpp layers/InnerProductLayer.h utils/UserInput.cpp utils/UserInput.h solvers/solver_helpers/Snapshot.cpp solvers/solver_helpers/Snapshot.h solvers/SolverBase.cpp solvers/SolverBase.h solvers/SGDSolver.cpp solvers/SGDSolver.h utils/GenerateLayers.cpp utils/GenerateLayers.h utils/NetworkMode.h)
+add_executable(ResearchDNNGenerator ${SOURCE_FILES})
