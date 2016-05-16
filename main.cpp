@@ -1,15 +1,6 @@
 #include <iostream>
-#include <string>
 #include <vector>
 
-#include "layers/InputLayer.h"
-#include "layers/ConvolutionLayer.h"
-#include "layers/PoolingLayer.h"
-#include "layers/ReLULayer.h"
-#include "layers/LRNLayer.h"
-#include "layers/InnerProductLayer.h"
-#include "layers/SoftmaxLayer.h"
-#include "prototxt/Prototxt.h"
 #include "utils/UserInput.h"
 #include "utils/GenerateLayers.h"
 #include "utils/Utilities.h"
