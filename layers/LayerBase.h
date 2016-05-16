@@ -30,6 +30,7 @@ protected:
 //    LayerCategory mLayerCat; // todo: FUTUREWORK -- switch from LayerType enum to this
 
 public:
+    LayerBase();
     LayerBase(std::string name, LayerType type);
     ~LayerBase();
     virtual void init();

@@ -4,6 +4,10 @@
 
 #include "LayerBase.h"
 
+LayerBase::LayerBase() {
+    init();
+}
+
 LayerBase::LayerBase(std::string name, LayerType type) {
     init();
     setName(name);
