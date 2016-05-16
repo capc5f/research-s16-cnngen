@@ -5,10 +5,13 @@
 #include "LayerBase.h"
 
 LayerBase::LayerBase() {
-
+    mHasBottom = false;
+    mHasTop = false;
 }
 
 LayerBase::LayerBase(std::string name, LayerType type) {
+    mHasBottom = false;
+    mHasTop = false;
     setName(name);
     setType(type);
 }

@@ -19,8 +19,8 @@ protected:
     LayerType mType;
     std::string mBottom;
     std::string mTop;
-    bool mHasTop = false;
-    bool mHasBottom = false;
+    bool mHasTop;
+    bool mHasBottom;
     int mWidth;
     int mHeight;
 //    LayerCategory mLayerCat; // todo: FUTUREWORK -- switch from LayerType enum to this
