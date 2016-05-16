@@ -24,6 +24,7 @@ private:
     int mInputWidth;
     int mInputHeight;
     int mNumInputChannels;
+    int mNumberInput;
     int mNumConvLayers;
     int mConvFilterSize;
     int mNumFullyConnLayers;
@@ -35,12 +36,13 @@ private:
     bool mIsValidInput;
     int mThresholdPercent;
 
+    void init();
     bool getNetworkCharacteristics();
     bool getInputDimensions(bool withInputFile);
     bool getPrototxt();
     int getThresholdPercentage();
     void setInputFilename(std::string filename);
-    void setInputDimensions(int size, int num_channels);
+    void setInputDimensions(int size, int num_channels, int num_input);
     void setBatchSize(int batch_size);
     void setNumConvolutionLayers(int num_convolution);
     void setConvolutionFilterSize(int conv_filter_size);
@@ -59,6 +61,7 @@ public:
     int getInputWidth();
     int getInputHeight();
     int getNumInputChannels();
+    int getNumberInput();
     int getNumConvLayers();
     int getConvFilterSize();
     int getNumFullyConnLayers();
@@ -68,6 +71,7 @@ public:
     std::string getNetworkName();
 };
 
+static bool isProperNumberInput(int num_input);
 static bool isPowerOfTwo(int num);
 static bool isProperNumChannels(int num_channels);
 static bool isProperBatchSize(int batch_size);

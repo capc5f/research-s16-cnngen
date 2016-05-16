@@ -14,6 +14,7 @@ GenerateLayers::GenerateLayers(UserInput in) {
     this->mInputWidth = in.getInputWidth();
     this->mInputHeight = in.getInputHeight();
     this->mNumInputChannels = in.getNumInputChannels();
+    this->mNumberInput = in.getNumberInput();
     this->mNetworkMode = in.getNetworkMode();
     this->mThreshold = in.getThreshold() / 100.0;
 

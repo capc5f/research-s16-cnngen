@@ -7,9 +7,7 @@
 using namespace std;
 
 UserInput::UserInput(bool withInputFile) {
-    mHasInputFilename = false;
-    mIsValidInput = true;
-    mHasNetworkName = false;
+    init();
 
     if (!getInputDimensions(withInputFile)) {
         mIsValidInput = false;
@@ -30,6 +28,14 @@ UserInput::UserInput(bool withInputFile) {
 }
 
 UserInput::~UserInput() {
+    mHasInputFilename = false;
+    mIsValidInput = true;
+    mHasNetworkName = false;
+
+    mNumberInput = 1;
+}
+
+void UserInput::init() {
 
 }
 
@@ -46,17 +52,42 @@ bool UserInput::hasInputFilename() {
 }
 
 bool UserInput::getInputDimensions(bool withInputFile) {
-    int err_num = 0, size = -1, num_channels = -1, batch_size = -1;
-    string size_str, num_channels_str, filename, batch_size_str;
+    int err_num = 0, size = -1, num_channels = -1, batch_size = -1, num_input = 1;
+    string size_str, num_channels_str, filename, batch_size_str, num_input_str;
     bool flag, e_flag = false;
 
     if ( withInputFile ) {
         cout << "Please enter the input filename: ";
         cin >> filename;
         ifstream myfile(filename);
+
         if (myfile.is_open()) {
             mHasInputFilename = true;
             myfile.close();
+
+            do {
+                cout << "How images do you want to read from this file?" << endl;
+                cin >> num_input_str;
+                try {
+                    num_input = stoi(num_input_str, nullptr, 10);
+                } catch (const std::invalid_argument &ia) {
+                    cerr << "Invalid argument: " << ia.what() << endl;
+                    cerr.flush();
+                    e_flag = true;
+                }
+
+                flag = isProperNumberInput(num_input);
+                if (!flag) {
+                    if (!e_flag)
+                        cerr << "Error: <" << num_input << "> is not a valid number of images!" << endl;
+
+                    if (++err_num >= 3)
+                        return false;
+                }
+                e_flag = false;
+                cerr.flush();
+            } while ( !flag );
+
         } else {
             cerr << "Unable to open file <" << filename << ">" << endl;
             cerr.flush();
@@ -136,7 +167,7 @@ bool UserInput::getInputDimensions(bool withInputFile) {
     } while ( !flag );
 
     setInputFilename(filename);
-    setInputDimensions(size, num_channels);
+    setInputDimensions(size, num_channels, num_input);
     setBatchSize(batch_size);
 
     return true;
@@ -298,10 +329,11 @@ void UserInput::setInputFilename(std::string filename) {
     this->mInputFilename = filename;
 }
 
-void UserInput::setInputDimensions(int size, int num_channels) {
+void UserInput::setInputDimensions(int size, int num_channels, int num_input) {
     this->mInputHeight = size;
     this->mInputWidth = size;
     this->mNumInputChannels = num_channels;
+    this->mNumberInput = num_input;
 }
 
 void UserInput::setBatchSize(int batch_size) {
@@ -380,6 +412,14 @@ std::string UserInput::getNetworkName() {
         return this->mNetworkName;
     else
         return "generated_network";
+}
+
+int UserInput::getNumberInput() {
+    return this->mNumberInput;
+}
+
+bool isProperNumberInput(int num_input) {
+    return num_input >= 1;
 }
 
 bool isPowerOfTwo(int num) {
