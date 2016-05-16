@@ -8,6 +8,7 @@
 #include <sstream>
 #include <vector>
 #include <cstdlib>
+#include <random>
 
 #include "UserInput.h"
 #include "NetworkMode.h"
