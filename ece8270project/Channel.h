@@ -18,7 +18,7 @@ class Channel {
 private:
     ChannelType mChannelType;
     std::vector<uint8_t> *mValues;
-    int mSize = 0;
+    int mSize;
 
 public:
     Channel(ChannelType channel_type);

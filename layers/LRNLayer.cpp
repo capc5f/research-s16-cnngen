@@ -7,6 +7,9 @@
 LRNLayer::LRNLayer(std::string name) {
     setName(name);
     setType(LRN);
+    mLocalSize = 5;
+    mAlpha = 1;
+    mBeta = 5;
 }
 
 LRNLayer::LRNLayer(std::string name, int local_size, float alpha, float beta, NormRegion norm_region) {

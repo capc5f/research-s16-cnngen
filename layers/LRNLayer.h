@@ -18,9 +18,9 @@ enum NormRegion {
 
 class LRNLayer: public LayerBase {
 private:
-    int mLocalSize = 5;
-    float mAlpha = 1;
-    float mBeta = 5;
+    int mLocalSize;
+    float mAlpha;
+    float mBeta;
     NormRegion mNormRegion;
 
 public:

@@ -22,10 +22,10 @@ private:
     int mFilterSize;
     int mStride = 1;
     WeightFiller mWeightFiller;
-    bool mHasWeightFiller = false;
     BiasFiller mBiasFiller;
-    bool mHasBiasFiller = false;
-    bool mHasPadding = false;
+    bool mHasWeightFiller;
+    bool mHasBiasFiller;
+    bool mHasPadding;
 
 public:
     ConvolutionLayer(std::string name);

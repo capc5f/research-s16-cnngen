@@ -5,6 +5,7 @@
 #include "Channel.h"
 
 Channel::Channel(ChannelType channel_type) {
+    mSize = 0;
     setChannelType(channel_type);
 }
 

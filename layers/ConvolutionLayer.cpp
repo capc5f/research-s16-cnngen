@@ -7,6 +7,9 @@
 ConvolutionLayer::ConvolutionLayer(std::string name) {
     setType(CONVOLUTION);
     setName(name);
+    mHasWeightFiller = false;
+    mHasBiasFiller = false;
+    mHasPadding = false;
 }
 
 ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int filter_size, int stride) {
@@ -15,6 +18,9 @@ ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int filter_size,
     setDepth(depth);
     setFilterSize(filter_size);
     setStride(stride);
+    mHasWeightFiller = false;
+    mHasBiasFiller = false;
+    mHasPadding = false;
 }
 
 ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int pad, int filter_size, int stride) {
@@ -24,6 +30,8 @@ ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int pad, int fil
     setPadding(pad);
     setFilterSize(filter_size);
     setStride(stride);
+    mHasWeightFiller = false;
+    mHasBiasFiller = false;
 }
 
 ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int filter_size, int stride, WeightFiller weight_filler, BiasFiller bias_filler) {
@@ -37,6 +45,8 @@ ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int pad, int fil
     setPadding(pad);
     setFilterSize(filter_size);
     setStride(stride);
+    mHasWeightFiller = false;
+    mHasBiasFiller = false;
 //    mGenParams.resize(num_gen_param);
 }
 

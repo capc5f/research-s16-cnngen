@@ -7,12 +7,16 @@
 InnerProductLayer::InnerProductLayer(std::string name) {
     setName(name);
     setType(INNER_PRODUCT);
+    mHasWeightFiller = false;
+    mHasBiasFiller = false;
 }
 
 InnerProductLayer::InnerProductLayer(std::string name, int num_output) {
     setName(name);
     setType(INNER_PRODUCT);
     setNumOutput(num_output);
+    mHasWeightFiller = false;
+    mHasBiasFiller = false;
 }
 
 InnerProductLayer::~InnerProductLayer() {

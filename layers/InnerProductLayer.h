@@ -20,9 +20,9 @@ private:
     int mHeight;
     int mNumOutput;
     WeightFiller mWeightFiller;
-    bool mHasWeightFiller = false;
     BiasFiller mBiasFiller;
-    bool mHasBiasFiller = false;
+    bool mHasWeightFiller;
+    bool mHasBiasFiller;
 
 public:
     InnerProductLayer(std::string name);

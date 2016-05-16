@@ -20,9 +20,9 @@ class PoolingLayer: public LayerBase {
 private:
     PoolingType mPoolingType;
     int mKernelSize;
-    int mStride = 1;
-    int mPadding = 0;
-    bool mHasPadding = false;
+    int mStride;
+    int mPadding;
+    bool mHasPadding;
 
 public:
     PoolingLayer(std::string name);

@@ -29,10 +29,10 @@ private:
     int mOutputDim;
     NetworkMode mNetworkMode;
     double mThreshold;
-    int mNumConvUsed = 0;
-    int mNumPoolUsed = 0;
-    int mNumReluUsed = 0;
-    int mNumFullyConnUsed = 0;
+    int mNumConvUsed;
+    int mNumPoolUsed;
+    int mNumReluUsed;
+    int mNumFullyConnUsed;
 
     void buildLayerList();
     ConvolutionLayer* buildConvolutionLayer(int in_size, int f_size, int depth);

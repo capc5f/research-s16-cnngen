@@ -7,6 +7,9 @@
 PoolingLayer::PoolingLayer(std::string name) {
     setType(POOLING);
     setName(name);
+    mStride = 1;
+    mPadding = 0;
+    mHasPadding = false;
 }
 
 PoolingLayer::PoolingLayer(std::string name, PoolingType pool, int kernel_size, int stride) {

@@ -17,7 +17,7 @@
 
 class UserInput {
 private:
-    bool mHasInputFilename = false;
+    bool mHasInputFilename;
     std::string mInputFilename;
     int mInputWidth;
     int mInputHeight;
@@ -28,7 +28,7 @@ private:
     int mOutputDim;
     NetworkMode mNetworkMode;
     bool mGeneratePrototxt;
-    bool mIsValidInput = true;
+    bool mIsValidInput;
     int mThresholdPercent;
 
     bool getNetworkCharacteristics();

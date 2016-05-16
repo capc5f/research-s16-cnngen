@@ -5,6 +5,11 @@
 #include "GenerateLayers.h"
 
 GenerateLayers::GenerateLayers(UserInput in) {
+    mNumConvUsed = 0;
+    mNumPoolUsed = 0;
+    mNumReluUsed = 0;
+    mNumFullyConnUsed = 0;
+
     this->mNumConvLayers = in.getNumConvLayers();
     this->mConvFilterSize = in.getConvFilterSize();
     this->mNumFullyConnLayers = in.getNumFullyConnLayers();

@@ -7,6 +7,9 @@
 using namespace std;
 
 UserInput::UserInput(bool withInputFile) {
+    mHasInputFilename = false;
+    mIsValidInput = true;
+
     if (!getInputDimensions(withInputFile)) {
         mIsValidInput = false;
         return;
