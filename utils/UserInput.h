@@ -9,6 +9,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <strings.h>
 #include <stdexcept>
 
 #include "../layers/layer_helpers/LayerTypes.h"
