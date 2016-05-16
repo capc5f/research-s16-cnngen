@@ -4,16 +4,11 @@ LINK = -lcublas -lcudnn
 CC = g++
 LAYER_DIR = ../layers/
 LAYER_HELPER_DIR = ../layers/layer_helpers/
-OBJDIR = ./obj/
 
 all:	main
 
 clean:
 	rm nn_setup
-	rm -r $(OBJDIR)
-
-$(OBJDIR):
-	mkdir -p $(OBJDIR)
 
 main: LayerBase ConvolutionLayer InnerProductLayer InputLayer PoolingLayer ReLULayer Param
 	$(NVCC) $(LINK) -o nn_setup NNsetup.cu LayerBase.o ConvolutionLayer.o InnerProductLayer.o InputLayer.o PoolingLayer.o ReLULayer.o Param.o
@@ -39,5 +34,3 @@ ReLULayer:
 Param:
 	$(CC) -c $(LAYER_HELPER_DIR)Param.cpp
 
-$(OBJDIR)/%.o: %.cpp
-	$(CC) -c -o $@ $<
