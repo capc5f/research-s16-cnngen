@@ -86,32 +86,32 @@ void PoolingLayer::setPoolingType(PoolingType pool) {
 std::string PoolingLayer::toString() {
     std::stringstream ss;
 
-    ss << "layer {" << std::endl;
+    ss << "layer {\n";
     ss << "  name: \"";
-    ss << getName() << "\"" << std::endl;
+    ss << getName() << "\"\n";
     ss << "  type: \"";
-    ss << getType() << "\"" << std::endl;
+    ss << getType() << "\"\n";
 
     if ( hasBottom() ) {
         ss << "  bottom: \"";
-        ss << getBottom() << "\"" << std::endl;
+        ss << getBottom() << "\"\n";
     }
 
     if ( hasTop() ) {
         ss << "  top: \"";
-        ss << getTop() << "\"" << std::endl;
+        ss << getTop() << "\"\n";
     }
 
-    ss << "  pooling_param {" << std::endl;
+    ss << "  pooling_param {\n";
     ss << "    pool: ";
-    ss << getPoolingType() << std::endl;
+    ss << getPoolingType() << "\n";
 
     if ( hasPadding() )
-        ss << "    pad: " << getPadding() << std::endl;
+        ss << "    pad: " << getPadding() << "\n";
 
-    ss << "    kernel_size: " << getKernelSize() << std::endl;
-    ss << "    stride: " << getStride() << std::endl;
-    ss << "  }" << std::endl;
+    ss << "    kernel_size: " << getKernelSize() << "\n";
+    ss << "    stride: " << getStride() << "\n";
+    ss << "  }\n";
     ss << "}" << std::endl;
 
     return ss.str();

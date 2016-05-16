@@ -69,29 +69,29 @@ void LRNLayer::setNormRegion(NormRegion norm_region) {
 std::string LRNLayer::toString() {
     std::stringstream ss;
 
-    ss << "layer {" << std::endl;
+    ss << "layer {\n";
     ss << "  name: \"";
-    ss << getName() << "\"" << std::endl;
+    ss << getName() << "\"\n";
     ss << "  type: \"";
-    ss << getType() << "\"" << std::endl;
+    ss << getType() << "\"\n";
 
     if ( hasBottom() ) {
         ss << "  bottom: \"";
-        ss << getBottom() << "\"" << std::endl;
+        ss << getBottom() << "\"\n";
     }
 
     if ( hasTop() ) {
         ss << "  top: \"";
-        ss << getTop() << "\"" << std::endl;
+        ss << getTop() << "\"\n";
     }
 
-    ss << "  lrn_param {" << std::endl;
-    ss << "    local_size: " << getLocalSize() << std::endl;
-    ss << "    alpha: " << getAlpha() << std::endl;
-    ss << "    beta: " << getBeta() << std::endl;
+    ss << "  lrn_param {\n";
+    ss << "    local_size: " << getLocalSize() << "\n";
+    ss << "    alpha: " << getAlpha() << "\n";
+    ss << "    beta: " << getBeta() << "\n";
     ss << "    norm_region: ";
-    ss << getNormRegion() << std::endl;
-    ss << "  }" << std::endl;
+    ss << getNormRegion() << "\n";
+    ss << "  }\n";
     ss << "}" << std::endl;
 
     return ss.str();

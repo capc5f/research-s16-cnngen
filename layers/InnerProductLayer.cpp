@@ -26,49 +26,49 @@ InnerProductLayer::~InnerProductLayer() {
 std::string InnerProductLayer::toString() {
     std::stringstream ss;
 
-    ss << "layer {" << std::endl;
+    ss << "layer {\n";
     ss << "  name: \"";
-    ss << getName() << "\"" << std::endl;
+    ss << getName() << "\"\n";
     ss << "  type: \"";
-    ss << getType() << "\"" << std::endl;
+    ss << getType() << "\"\n";
 
     if ( hasBottom() ) {
         ss << "  bottom: \"";
-        ss << getBottom() << "\"" << std::endl;
+        ss << getBottom() << "\"\n";
     }
 
     if ( hasTop() ) {
         ss << "  top: \"";
-        ss << getTop() << "\"" << std::endl;
+        ss << getTop() << "\"\n";
     }
 
     if ( mGenParams.size() > 0 ) {
         for (int i = 0; i < mGenParams.size(); ++i) {
-            ss << "  param {" << std::endl;
-            ss << "    lr_mult: " << mGenParams.at(i).getLearningRate() << std::endl;
-            ss << "    decay_mult: " << mGenParams.at(i).getDecayMult() << std::endl;
-            ss << "  }" << std::endl;
+            ss << "  param {\n";
+            ss << "    lr_mult: " << mGenParams.at(i).getLearningRate() << "\n";
+            ss << "    decay_mult: " << mGenParams.at(i).getDecayMult() << "\n";
+            ss << "  }\n";
         }
     }
 
-    ss << "  inner_product_param {" << std::endl;
-    ss << "    num_output: " << getNumOutput() << std::endl;
+    ss << "  inner_product_param {" << "\n";
+    ss << "    num_output: " << getNumOutput() << "\n";
 
     if ( hasWeightFiller() ) {
-        ss << "    weight_filler {" << std::endl;
+        ss << "    weight_filler {\n";
         ss << "      type: \"";
-        ss << getWeightFiller() << "\"" << std::endl;
-        ss << "    }" << std::endl;
+        ss << getWeightFiller() << "\"\n";
+        ss << "    }\n";
     }
 
     if ( hasBiasFiller() ) {
-        ss << "    bias_filler {" << std::endl;
+        ss << "    bias_filler {\n";
         ss << "      type: \"";
-        ss << getBiasFiller() << "\"" << std::endl;
-        ss << "    }" << std::endl;
+        ss << getBiasFiller() << "\"\n";
+        ss << "    }\n";
     }
 
-    ss << "  }" << std::endl;
+    ss << "  }\n";
     ss << "}" << std::endl;
 
     return ss.str();

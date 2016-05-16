@@ -19,6 +19,7 @@ private:
     std::vector <Param> mGenParams;
     int mPadding;
     int mFilterSize;
+    int mFilterDepth;
     int mStride;
     WeightFiller mWeightFiller;
     BiasFiller mBiasFiller;
@@ -38,6 +39,8 @@ public:
     void setPadding(int pad);
     int getFilterSize();
     void setFilterSize(int filter_size);
+    int getFilterDepth();
+    void setFilterDepth(int filter_depth);
     int getStride();
     void setStride(int stride);
     void setParamAtIndex(int index, int lr_mult, int decay_mult);

@@ -9,6 +9,7 @@ using namespace std;
 UserInput::UserInput(bool withInputFile) {
     mHasInputFilename = false;
     mIsValidInput = true;
+    mHasNetworkName = false;
 
     if (!getInputDimensions(withInputFile)) {
         mIsValidInput = false;
@@ -21,6 +22,11 @@ UserInput::UserInput(bool withInputFile) {
     }
 
     mGeneratePrototxt = getPrototxt();
+    if ( mGeneratePrototxt ) {
+        cout << "Please name your generated network: ";
+        cin >> mNetworkName;
+        mHasNetworkName = true;
+    }
 }
 
 UserInput::~UserInput() {
@@ -113,7 +119,7 @@ bool UserInput::getInputDimensions(bool withInputFile) {
 }
 
 bool UserInput::getNetworkCharacteristics() {
-    string num_conv_str, conv_filter_size_str, num_fc_str, output_dim_str, mode_str;
+    string num_conv_str, conv_filter_size_str, num_fc_str, output_dim_str, mode_str, network_name_str;
     int num_conv = -1, conv_filter_size = -1, num_fc = -1, output_dim = -1, err_num = 0;
     NetworkMode mode;
     bool flag, e_flag = false;
@@ -297,7 +303,10 @@ void UserInput::setThresholdPercent(int threshold_percent) {
 }
 
 std::string UserInput::getInputFilename() {
-    return this->mInputFilename;
+    if ( mHasInputFilename )
+        return this->mInputFilename;
+    else
+        return "generated_network.prototxt";
 }
 
 int UserInput::getInputWidth() {
@@ -334,6 +343,13 @@ NetworkMode UserInput::getNetworkMode() {
 
 int UserInput::getThreshold() {
     return this->mThresholdPercent;
+}
+
+std::string UserInput::getNetworkName() {
+    if ( mHasNetworkName )
+        return this->mNetworkName;
+    else
+        return "generated_network";
 }
 
 bool isPowerOfTwo(int num) {

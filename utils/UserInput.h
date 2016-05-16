@@ -27,6 +27,8 @@ private:
     int mNumFullyConnLayers;
     int mOutputDim;
     NetworkMode mNetworkMode;
+    std::string mNetworkName;
+    bool mHasNetworkName;
     bool mGeneratePrototxt;
     bool mIsValidInput;
     int mThresholdPercent;
@@ -60,6 +62,7 @@ public:
     int getOutputDim();
     NetworkMode getNetworkMode();
     int getThreshold();
+    std::string getNetworkName();
 };
 
 static bool isPowerOfTwo(int num);

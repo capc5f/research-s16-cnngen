@@ -18,6 +18,7 @@ ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int filter_size,
     setType(CONVOLUTION);
     setName(name);
     setInputDepth(depth);
+    setFilterDepth(depth);
     setOutputDepth(depth);
     setFilterSize(filter_size);
     setStride(stride);
@@ -31,6 +32,7 @@ ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int pad, int fil
     setType(CONVOLUTION);
     setName(name);
     setInputDepth(depth);
+    setFilterDepth(depth);
     setOutputDepth(depth);
     setPadding(pad);
     setFilterSize(filter_size);
@@ -39,6 +41,7 @@ ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int pad, int fil
     mHasBiasFiller = false;
 }
 
+// todo: does nothing right now.. has params for Caffe prototxt
 ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int filter_size, int stride, WeightFiller weight_filler, BiasFiller bias_filler) {
 
 }
@@ -47,6 +50,7 @@ ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int pad, int fil
     setType(CONVOLUTION);
     setName(name);
     setInputDepth(depth);
+    setFilterDepth(depth);
     setOutputDepth(depth);
     setPadding(pad);
     setFilterSize(filter_size);
@@ -63,54 +67,54 @@ ConvolutionLayer::~ConvolutionLayer() {
 std::string ConvolutionLayer::toString() {
     std::stringstream ss;
 
-    ss << "layer {" << std::endl;
+    ss << "layer {\n";
     ss << "  name: \"";
-    ss << getName() << "\"" << std::endl;
+    ss << getName() << "\"\n";
     ss << "  type: \"";
-    ss << getType() << "\"" << std::endl;
+    ss << getType() << "\"\n";
 
     if ( hasBottom() ) {
         ss << "  bottom: \"";
-        ss << getBottom() << "\"" << std::endl;
+        ss << getBottom() << "\"\n";
     }
 
     if ( hasTop() ) {
         ss << "  top: \"";
-        ss << getTop() << "\"" << std::endl;
+        ss << getTop() << "\"\n";
     }
 
     if ( mGenParams.size() > 0 ) {
         for (int i = 0; i < mGenParams.size(); ++i) {
-            ss << "  param {" << std::endl;
-            ss << "    lr_mult: " << mGenParams.at(i).getLearningRate() << std::endl;
-            ss << "  }" << std::endl;
+            ss << "  param {\n";
+            ss << "    lr_mult: " << mGenParams.at(i).getLearningRate() << "\n";
+            ss << "  }\n";
         }
     }
 
-    ss << "  convolution_param {" << std::endl;
-    ss << "    num_output: " << getOutputDepth() << std::endl;
+    ss << "  convolution_param {\n";
+    ss << "    num_output: " << getOutputDepth() << "\n";
 
     if ( hasPadding() )
-        ss << "    pad: " << getPadding() << std::endl;
+        ss << "    pad: " << getPadding() << "\n";
 
-    ss << "    kernel_size: " << getFilterSize() << std::endl;
-    ss << "    stride: " << getStride() << std::endl;
+    ss << "    kernel_size: " << getFilterSize() << "\n";
+    ss << "    stride: " << getStride() << "\n";
 
     if ( hasWeightFiller() ) {
-        ss << "    weight_filler {" << std::endl;
+        ss << "    weight_filler {" << "\n";
         ss << "      type: \"";
-        ss << getWeightFiller() << "\"" << std::endl;
-        ss << "    }" << std::endl;
+        ss << getWeightFiller() << "\"\n";
+        ss << "    }\n";
     }
 
     if ( hasBiasFiller() ) {
-        ss << "    bias_filler {" << std::endl;
+        ss << "    bias_filler {\n";
         ss << "      type: \"";
-        ss << getBiasFiller() << "\"" << std::endl;
-        ss << "    }" << std::endl;
+        ss << getBiasFiller() << "\"\n";
+        ss << "    }\n";
     }
 
-    ss << "  }" << std::endl;
+    ss << "  }\n";
     ss << "}" << std::endl;
 
     return ss.str();
@@ -135,6 +139,14 @@ int ConvolutionLayer::getFilterSize() {
 
 void ConvolutionLayer::setFilterSize(int filter_size) {
     this->mFilterSize = filter_size;
+}
+
+int ConvolutionLayer::getFilterDepth() {
+    return this->mFilterDepth;
+}
+
+void ConvolutionLayer::setFilterDepth(int filter_depth) {
+    this->mFilterDepth = filter_depth;
 }
 
 int ConvolutionLayer::getStride() {

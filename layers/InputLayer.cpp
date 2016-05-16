@@ -18,27 +18,27 @@ InputLayer::InputLayer(std::string name, int num, int channels, int height, int 
 std::string InputLayer::toString() {
     std::stringstream ss;
 
-    ss << "layer {" << std::endl;
+    ss << "layer {\n";
     ss << "  name: \"";
-    ss << getName() << "\"" << std::endl;
+    ss << getName() << "\"\n";
     ss << "  type: \"";
-    ss << getType() << "\"" << std::endl;
+    ss << getType() << "\"\n";
 
     if ( hasBottom() ) {
         ss << "  bottom: \"";
-        ss << getBottom() << "\"" << std::endl;
+        ss << getBottom() << "\"\n";
     }
 
     if ( hasTop() ) {
         ss << "  top: \"";
-        ss << getTop() << "\"" << std::endl;
+        ss << getTop() << "\"\n";
     }
 
     ss << "  input_param { shape: { ";
     for (int i = 0; i < mShape.size(); ++i) {
         ss << "dim: " << mShape.at(i) << " ";
     }
-    ss << "} }" << std::endl;
+    ss << "} }\n";
     ss << "}" << std::endl;
 
     return ss.str();
