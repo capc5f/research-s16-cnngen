@@ -27,9 +27,29 @@ InnerProductLayer::~InnerProductLayer() {
 }
 
 void InnerProductLayer::init() {
+    mAlpha = 0.0;
+    mBeta = 0.0;
     mHasWeightFiller = false;
     mHasBiasFiller = false;
     setOutputDepth(1);
+}
+
+const void* InnerProductLayer::getAlpha() {
+    const void* a = &mAlpha;
+    return a;
+}
+
+void InnerProductLayer::setAlpha(float alpha) {
+    this->mAlpha = alpha;
+}
+
+const void* InnerProductLayer::getBeta() {
+    const void* b = &mBeta;
+    return b;
+}
+
+void InnerProductLayer::setBeta(float beta) {
+    this->mBeta = beta;
 }
 
 std::string InnerProductLayer::toString() {

@@ -12,6 +12,7 @@
 
 #include "LayerBase.h"
 #include "layer_helpers/Param.h"
+#include "ConvolutionLayer.h"
 
 class InnerProductLayer: public LayerBase {
 private:
@@ -21,6 +22,8 @@ private:
     BiasFiller mBiasFiller;
     bool mHasWeightFiller;
     bool mHasBiasFiller;
+    float mAlpha;
+    float mBeta;
 
 public:
     InnerProductLayer(std::string name);
@@ -29,6 +32,10 @@ public:
     ~InnerProductLayer();
     void init();
     int getNumOutput();
+    const void* getAlpha();
+    void setAlpha(float alpha);
+    const void* getBeta();
+    void setBeta(float beta);
     void setNumOutput(int num_output);
     void setParamAtIndex(int index, int lr_mult, int decay_mult);
     Param getParamAtIndex(int index);

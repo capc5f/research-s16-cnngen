@@ -237,7 +237,7 @@ ReLULayer* GenerateLayers::buildReLULayer(int in_size) {
 
 InnerProductLayer* GenerateLayers::buildInnerProductLayer(int in_size, int out_size) {
     std::stringstream ss;
-    ss << "fullconn" << ++mNumFullyConnUsed;
+    ss << "fc" << ++mNumFullyConnUsed;
 
     InnerProductLayer *innerProductLayer = new InnerProductLayer(ss.str(), out_size);
     innerProductLayer->setInputHeight(in_size);
@@ -251,7 +251,7 @@ InnerProductLayer* GenerateLayers::buildInnerProductLayer(int in_size, int out_s
 InnerProductLayer* GenerateLayers::buildInnerProductLayer(int in_width, int in_height, int out_width,
                                                           int out_height) {
     std::stringstream ss;
-    ss << "fullconn" << ++mNumFullyConnUsed;
+    ss << "fc" << ++mNumFullyConnUsed;
 
     InnerProductLayer *innerProductLayer = new InnerProductLayer(ss.str(), in_width, in_height, out_width, out_height);
 
