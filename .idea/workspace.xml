@@ -40,6 +40,7 @@
                   <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
                   <folding>
                     <element signature="e#0#19#0" expanded="true" />
+                    <marker date="1463349728000" expanded="true" signature="3520:5841" placeholder="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -67,17 +68,17 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UserInput.cpp" pinned="false" current-in-tab="false">
+          <file leaf-file-name="UserInput.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/utils/UserInput.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="105">
-                  <caret line="333" column="1" selection-start-line="333" selection-start-column="1" selection-end-line="333" selection-end-column="1" />
+                <state relative-caret-position="315">
+                  <caret line="64" column="17" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GenerateLayers.cpp" pinned="false" current-in-tab="true">
+          <file leaf-file-name="GenerateLayers.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/utils/GenerateLayers.cpp">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="132">
@@ -92,7 +93,27 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="1365">
                   <caret line="91" column="5" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
-                  <folding />
+                  <folding>
+                    <marker date="1463349753000" expanded="true" signature="108:112" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="169:210" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="236:240" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="268:296" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="334:363" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="392:421" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="461:492" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="519:548" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="582:608" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="650:798" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="828:860" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="897:926" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="974:1064" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="1099:1120" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="1164:1191" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="1226:1670" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="1712:1739" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="1777:1804" placeholder="{...}" />
+                    <marker date="1463349753000" expanded="true" signature="1840:2295" placeholder="{...}" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -124,6 +145,7 @@
                   <caret line="47" column="2" selection-start-line="47" selection-start-column="2" selection-end-line="47" selection-end-column="2" />
                   <folding>
                     <element signature="e#144#163#0" expanded="true" />
+                    <marker date="1463349743000" expanded="true" signature="313:1151" placeholder="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -136,11 +158,21 @@
           <file leaf-file-name="UserInput.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/utils/UserInput.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
+                <state relative-caret-position="240">
+                  <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
                   <folding>
                     <element signature="e#145#163#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CMakeCache.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CMakeCache.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -155,17 +187,17 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="90">
-                  <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+                  <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GenerateLayers.h" pinned="false" current-in-tab="true">
+          <file leaf-file-name="GenerateLayers.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/utils/GenerateLayers.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="450">
@@ -229,10 +261,11 @@
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/layers/LayerBase.h" />
         <option value="$PROJECT_DIR$/layers/LayerBase.cpp" />
-        <option value="$PROJECT_DIR$/utils/UserInput.h" />
         <option value="$PROJECT_DIR$/utils/UserInput.cpp" />
         <option value="$PROJECT_DIR$/utils/GenerateLayers.h" />
         <option value="$PROJECT_DIR$/utils/GenerateLayers.cpp" />
+        <option value="$PROJECT_DIR$/utils/UserInput.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -575,12 +608,12 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12738095" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -870,14 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/iosfwd">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
@@ -898,7 +923,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1365">
           <caret line="91" column="5" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
-          <folding />
+          <folding>
+            <marker date="1463349753000" expanded="true" signature="108:112" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="169:210" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="236:240" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="268:296" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="334:363" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="392:421" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="461:492" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="519:548" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="582:608" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="650:798" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="828:860" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="897:926" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="974:1064" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="1099:1120" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="1164:1191" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="1226:1670" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="1712:1739" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="1777:1804" placeholder="{...}" />
+            <marker date="1463349753000" expanded="true" signature="1840:2295" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -908,6 +953,7 @@
           <caret line="47" column="2" selection-start-line="47" selection-start-column="2" selection-end-line="47" selection-end-column="2" />
           <folding>
             <element signature="e#144#163#0" expanded="true" />
+            <marker date="1463349743000" expanded="true" signature="313:1151" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -936,25 +982,8 @@
           <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <marker date="1463349728000" expanded="true" signature="3520:5841" placeholder="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/UserInput.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
-          <folding>
-            <element signature="e#145#163#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/UserInput.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="333" column="1" selection-start-line="333" selection-start-column="1" selection-end-line="333" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -972,6 +1001,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="150" column="21" selection-start-line="150" selection-start-column="21" selection-end-line="150" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/UserInput.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="64" column="17" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/UserInput.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding>
+            <element signature="e#145#163#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeCache.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
           <folding />
         </state>
       </provider>
