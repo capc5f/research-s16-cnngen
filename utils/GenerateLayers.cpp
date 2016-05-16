@@ -27,13 +27,24 @@ std::vector <LayerBase *> GenerateLayers::getLayerList() {
     return this->mLayerList;
 }
 
-// todo: integrate network mode..
+// todo: integrate other layers and layer generating patterns..
 void GenerateLayers::buildLayerList() {
     int i, size = mInputHeight;
     std::vector <LayerBase *> layers;
 
     switch ( mNetworkMode ) {
+
         case AUTOMATIC: {
+
+            /**
+             * Follow pattern:
+             * INPUT -> [[CONV -> RELU]*N -> POOL?]*M -> [FC -> RELU]*K -> FC
+             *  - K:
+             *  - M:
+             *  - N:
+             * always do at least 1 fully connected layer (linear classifier)
+             * N >= 0, usually N <= 3, M >= 0, K >= 0 (and usually K < 3).
+             */
 
             for (i = 0; i < mNumConvLayers; ++i) {
                 ConvolutionLayer *c = buildConvolutionLayer(size, mConvFilterSize, mNumInputChannels);
@@ -45,10 +56,15 @@ void GenerateLayers::buildLayerList() {
                 size = p->getOutputWidth();
             }
 
-            for (i = 0; i < mNumFullyConnLayers; ++i) {
-                InnerProductLayer *i = buildInnerProductLayer(size, mOutputDim);
-                layers.push_back(i);
+            for ( int k = 0; k < mNumFullyConnLayers - 1; ++k ) {
+                InnerProductLayer *ip = buildInnerProductLayer(size, size);
+                ReLULayer *r = buildReLULayer(size);
+                layers.push_back(ip);
+                layers.push_back(r);
             }
+
+            InnerProductLayer *ip = buildInnerProductLayer(size, size, 1, mOutputDim);
+            layers.push_back(ip);
 
             break;
         }
@@ -57,7 +73,7 @@ void GenerateLayers::buildLayerList() {
 
             /**
              * Follow pattern:
-             * Input -> {[CONV -> RELU -> POOL] * K } -> {[CONV -> RELU] * M } -> { [FC -> RELU] * N } -> FC
+             * INPUT -> {[CONV -> RELU -> POOL] * K } -> {[CONV -> RELU] * M } -> { [FC -> RELU] * N } -> FC
              *  - K: variable, determined based on the requested minimization ratio percentage
              *  - M: variable, leftover convolutions are chained, followed by relu
              *  - N: number of fully connected layers requested - 1
