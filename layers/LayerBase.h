@@ -15,6 +15,8 @@
 
 class LayerBase {
 protected:
+    static int sBatchSize;
+
     std::string mName;
     LayerType mType;
     std::string mBottom;
@@ -33,6 +35,8 @@ public:
     LayerBase();
     LayerBase(std::string name, LayerType type);
     ~LayerBase();
+    static int getBatchSize();
+    static void setBatchSize(int batch_size);
     virtual void init();
     int getInputWidth();
     void setInputWidth(int input_width);

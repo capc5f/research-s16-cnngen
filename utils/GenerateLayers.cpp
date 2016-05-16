@@ -5,10 +5,7 @@
 #include "GenerateLayers.h"
 
 GenerateLayers::GenerateLayers(UserInput in) {
-    mNumConvUsed = 0;
-    mNumPoolUsed = 0;
-    mNumReluUsed = 0;
-    mNumFullyConnUsed = 0;
+    init();
 
     this->mNumConvLayers = in.getNumConvLayers();
     this->mConvFilterSize = in.getConvFilterSize();
@@ -23,14 +20,25 @@ GenerateLayers::GenerateLayers(UserInput in) {
     buildLayerList();
 }
 
+void GenerateLayers::init() {
+    mNumConvUsed = 0;
+    mNumPoolUsed = 0;
+    mNumReluUsed = 0;
+    mNumFullyConnUsed = 0;
+}
+
 std::vector <LayerBase *> GenerateLayers::getLayerList() {
     return this->mLayerList;
 }
 
-// todo: integrate other layers and layer generating patterns..
+// todo: FUTUREWORK -- integrate other layers and layer generating patterns..
 void GenerateLayers::buildLayerList() {
     int i, size = mInputHeight;
     std::vector <LayerBase *> layers;
+    {
+        InputLayer *in = buildInputLayer();
+        layers.push_back(in);
+    }
 
     switch ( mNetworkMode ) {
 
@@ -45,9 +53,35 @@ void GenerateLayers::buildLayerList() {
              * always do at least 1 fully connected layer (linear classifier)
              * N >= 0, usually N <= 3, M >= 0, K >= 0 (and usually K < 3).
              */
+            std::random_device rd;
+            int N, M, K = mNumFullyConnLayers - 1, j;
+            if ( mNumConvLayers > 0 ) {
+                N = rd() % mNumConvLayers;
+                M = mNumConvLayers / N;
+            } else {
+                M = N = 0;
+            }
 
+            std::cout << "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << std::endl;
+            std::cout << "# conv: " << mNumConvLayers << ", N: " << N << ", M: " << M << std::endl;
+            std::cout << "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << std::endl;
+
+            for ( i = 0; i < M; ++i ) {
+                for ( j = 0; j < N; ++j ) {
+                    ConvolutionLayer *c = buildConvolutionLayer(size, mConvFilterSize, mNumInputChannels);
+                    ReLULayer *r = buildReLULayer(c->getOutputWidth());
+                    layers.push_back(c);
+                    layers.push_back(r);
+                }
+
+                PoolingLayer *p = buildPoolingLayerMax2by2(layers.back()->getOutputWidth());
+                layers.push_back(p);
+                size = p->getOutputWidth();
+            }
+
+            /*
             for (i = 0; i < mNumConvLayers; ++i) {
-                ConvolutionLayer *c = buildConvolutionLayer(size, mConvFilterSize, mNumInputChannels);
+                ConvolutionLayer *c = buildConvolutionLayer(size, mConvFilterSize, mNumChannels);
                 ReLULayer *r = buildReLULayer(c->getOutputWidth());
                 PoolingLayer *p = buildPoolingLayerMax2by2(c->getOutputWidth());
                 layers.push_back(c);
@@ -55,8 +89,9 @@ void GenerateLayers::buildLayerList() {
                 layers.push_back(p);
                 size = p->getOutputWidth();
             }
+            */
 
-            for ( int k = 0; k < mNumFullyConnLayers - 1; ++k ) {
+            for ( i = 0; i < K; ++i ) {
                 InnerProductLayer *ip = buildInnerProductLayer(size, size);
                 ReLULayer *r = buildReLULayer(size);
                 layers.push_back(ip);
@@ -81,6 +116,7 @@ void GenerateLayers::buildLayerList() {
              */
 
             double ratio = size / (double) mInputHeight;
+            int M = mNumConvLayers, N = mNumFullyConnLayers - 1;
 
             while ( ratio >= mThreshold ) {
                 if ( mNumConvUsed < mNumConvLayers ) {
@@ -95,16 +131,15 @@ void GenerateLayers::buildLayerList() {
                 ratio = size / (float) mInputHeight;
             }
 
-            for ( i = mNumConvUsed; i < mNumConvLayers; ++i ) {
+            for ( i = mNumConvUsed; i < M; ++i ) {
                 ConvolutionLayer *c = buildConvolutionLayer(size, mConvFilterSize, mNumInputChannels);
                 ReLULayer *r = buildReLULayer(size);
                 layers.push_back(c);
                 layers.push_back(r);
             }
 
-            for ( i = 0; i < mNumFullyConnLayers - 1; ++i ) {
+            for ( i = 0; i < N; ++i ) {
                 InnerProductLayer *ip = buildInnerProductLayer(size, size);
-//                InnerProductLayer *ip = buildInnerProductLayer(size, size, size, size);
                 ReLULayer *r = buildReLULayer(size);
                 layers.push_back(ip);
                 layers.push_back(r);
@@ -118,6 +153,12 @@ void GenerateLayers::buildLayerList() {
     }
 
     mLayerList = layers;
+}
+
+InputLayer* GenerateLayers::buildInputLayer() {
+    InputLayer *inputLayer = new InputLayer("input", mNumberInput, mNumInputChannels, mInputHeight, mInputWidth);
+
+    return inputLayer;
 }
 
 /**

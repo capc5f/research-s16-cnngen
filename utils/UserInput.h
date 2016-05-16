@@ -12,6 +12,7 @@
 #include <strings.h>
 #include <stdexcept>
 
+#include "../layers/LayerBase.h"
 #include "../layers/layer_helpers/LayerTypes.h"
 #include "NetworkMode.h"
 
@@ -39,6 +40,7 @@ private:
     int getThresholdPercentage();
     void setInputFilename(std::string filename);
     void setInputDimensions(int size, int num_channels);
+    void setBatchSize(int batch_size);
     void setNumConvolutionLayers(int num_convolution);
     void setConvolutionFilterSize(int conv_filter_size);
     void setNumFullyConnectedLayers(int num_fullyconn);
@@ -67,6 +69,7 @@ public:
 
 static bool isPowerOfTwo(int num);
 static bool isProperNumChannels(int num_channels);
+static bool isProperBatchSize(int batch_size);
 static bool isProperConvSetting(int num_conv);
 static bool isProperFullyConnectedSetting(int num_fc);
 static bool isProperOutputDimSetting(int output_dim);

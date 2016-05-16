@@ -46,8 +46,8 @@ bool UserInput::hasInputFilename() {
 }
 
 bool UserInput::getInputDimensions(bool withInputFile) {
-    int err_num = 0, size = -1, num_channels = -1;
-    string size_str, num_channels_str, filename;
+    int err_num = 0, size = -1, num_channels = -1, batch_size = -1;
+    string size_str, num_channels_str, filename, batch_size_str;
     bool flag, e_flag = false;
 
     if ( withInputFile ) {
@@ -112,8 +112,32 @@ bool UserInput::getInputDimensions(bool withInputFile) {
         cerr.flush();
     } while ( !flag );
 
+    err_num = 0;
+    do {
+        cout << "What batch size do you want?" << endl;
+        cin >> batch_size_str;
+        try {
+            batch_size = stoi(batch_size_str, nullptr, 10);
+        } catch (const std::invalid_argument &ia) {
+            cerr << "Invalid argument: " << ia.what() << endl;
+            e_flag = true;
+        }
+
+        flag = isProperBatchSize(batch_size);
+        if (!flag) {
+            if (!e_flag)
+                cerr << "Error: <" << batch_size << "> is not a valid batch size!" << endl;
+
+            if (++err_num >= 3)
+                return false;
+        }
+        e_flag = false;
+        cerr.flush();
+    } while ( !flag );
+
     setInputFilename(filename);
     setInputDimensions(size, num_channels);
+    setBatchSize(batch_size);
 
     return true;
 }
@@ -146,27 +170,29 @@ bool UserInput::getNetworkCharacteristics() {
         cerr.flush();
     } while (!flag);
 
-    do {
-        cout << "What convolution filter size would you like?" << endl;
-        cin >> conv_filter_size_str;
-        try {
-            conv_filter_size = stoi(conv_filter_size_str, nullptr, 10);
-        } catch (const std::invalid_argument &ia) {
-            cerr << "Invalid argument: " << ia.what() << endl;
-            e_flag = true;
-        }
+    if ( num_conv > 0 ) {
+        do {
+            cout << "What convolution filter size would you like?" << endl;
+            cin >> conv_filter_size_str;
+            try {
+                conv_filter_size = stoi(conv_filter_size_str, nullptr, 10);
+            } catch (const std::invalid_argument &ia) {
+                cerr << "Invalid argument: " << ia.what() << endl;
+                e_flag = true;
+            }
 
-        flag = isProperConvSetting(conv_filter_size);
-        if (!flag) {
-            if (!e_flag)
-                cerr << "Error: <" << conv_filter_size << "> is not a valid convolution filter size!" << endl;
+            flag = isProperConvSetting(conv_filter_size);
+            if (!flag) {
+                if (!e_flag)
+                    cerr << "Error: <" << conv_filter_size << "> is not a valid convolution filter size!" << endl;
 
-            if (++err_num >= 3)
-                return false;
-        }
-        e_flag = false;
-        cerr.flush();
-    } while (!flag);
+                if (++err_num >= 3)
+                    return false;
+            }
+            e_flag = false;
+            cerr.flush();
+        } while (!flag);
+    }
 
     do {
         cout << "How many fully connected layers would you like?" << endl;
@@ -278,6 +304,10 @@ void UserInput::setInputDimensions(int size, int num_channels) {
     this->mNumInputChannels = num_channels;
 }
 
+void UserInput::setBatchSize(int batch_size) {
+    LayerBase::setBatchSize(batch_size);
+}
+
 void UserInput::setNumConvolutionLayers(int num_convolution) {
     this->mNumConvLayers = num_convolution;
 }
@@ -361,6 +391,10 @@ bool isPowerOfTwo(int num) {
 // todo: no way to verify until we open the file, i guess?
 bool isProperNumChannels(int num_channels) {
     return num_channels >= 1;
+}
+
+bool isProperBatchSize(int batch_size) {
+    return batch_size >= 1;
 }
 
 bool isProperConvSetting(int num_conv) {

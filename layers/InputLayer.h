@@ -15,12 +15,16 @@
 
 class InputLayer: public LayerBase {
 private:
-    std::vector <int> mShape;
+    int mNumberInput;
+    int mWidth;
+    int mHeight;
+    int mNumChannels;
 
 public:
-    InputLayer(std::string name, int num, int channels, int height, int width);
+    InputLayer(std::string name, int number_input, int channels, int height, int width);
     ~InputLayer();
     void init();
+    int getNumberInput();
     int getHeight();
     int getWidth();
     int getNumChannels();

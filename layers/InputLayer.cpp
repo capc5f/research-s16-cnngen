@@ -4,19 +4,37 @@
 
 #include "InputLayer.h"
 
-InputLayer::InputLayer(std::string name, int num, int channels, int height, int width): LayerBase(name, INPUT) {
+InputLayer::InputLayer(std::string name, int number_input, int channels, int height, int width): LayerBase(name, INPUT) {
+    this->mNumberInput = number_input;
+    this->mNumChannels = channels;
+    this->mHeight = height;
+    this->mWidth = width;
     init();
-    std::vector<int> shape(4);
-    shape[0] = num;
-    shape[1] = channels;
-    shape[2] = height;
-    shape[3] = width;
-    mShape = shape;
 }
 
 void InputLayer::init() {
-    // noop
-    // todo: replace noop with useful code, perhaps get rid of the shape vector..
+    setInputWidth(mWidth);
+    setOutputWidth(mWidth);
+    setInputHeight(mHeight);
+    setOutputHeight(mHeight);
+    setInputDepth(mNumChannels);
+    setOutputDepth(mNumChannels);
+}
+
+int InputLayer::getNumberInput() {
+    return this->mNumberInput;
+}
+
+int InputLayer::getHeight() {
+    return this->mHeight;
+}
+
+int InputLayer::getWidth() {
+    return this->mWidth;
+}
+
+int InputLayer::getNumChannels() {
+    return this->mNumChannels;
 }
 
 std::string InputLayer::toString() {
@@ -39,9 +57,10 @@ std::string InputLayer::toString() {
     }
 
     ss << "  input_param { shape: { ";
-    for (int i = 0; i < mShape.size(); ++i) {
-        ss << "dim: " << mShape.at(i) << " ";
-    }
+    ss << "dim: " << mNumberInput << " ";
+    ss << "dim: " << mNumChannels << " ";
+    ss << "dim: " << mHeight << " ";
+    ss << "dim: " << mWidth << " ";
     ss << "} }\n";
     ss << "}" << std::endl;
 

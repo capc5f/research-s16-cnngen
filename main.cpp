@@ -7,7 +7,11 @@
 
 using namespace std;
 
+void cleanup();
+
 int main(int argc, const char **argv) {
+
+    atexit(cleanup);
 
     UserInput in(false);
     if ( !in.isValidInput() ) {
@@ -29,4 +33,8 @@ int main(int argc, const char **argv) {
         cout << "Layers cleared.." << endl;
 
     return EXIT_SUCCESS;
+}
+
+void cleanup() {
+    cout << "Cleanup.." << endl;
 }

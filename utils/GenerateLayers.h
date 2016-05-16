@@ -7,10 +7,12 @@
 
 #include <sstream>
 #include <vector>
+#include <random>
 
 #include "UserInput.h"
 #include "NetworkMode.h"
 #include "../layers/LayerBase.h"
+#include "../layers/InputLayer.h"
 #include "../layers/ConvolutionLayer.h"
 #include "../layers/PoolingLayer.h"
 #include "../layers/ReLULayer.h"
@@ -20,6 +22,7 @@ class GenerateLayers {
 private:
     std::vector <LayerBase *> mLayerList;
     int mTotalLayers;
+    int mNumberInput;
     int mInputWidth;
     int mInputHeight;
     int mNumInputChannels;
@@ -34,7 +37,9 @@ private:
     int mNumReluUsed;
     int mNumFullyConnUsed;
 
+    void init();
     void buildLayerList();
+    InputLayer* buildInputLayer();
     ConvolutionLayer* buildConvolutionLayer(int in_size, int f_size, int depth);
     PoolingLayer* buildPoolingLayer(int in_size, int filter_size, PoolingType type, int stride);
     PoolingLayer* buildPoolingLayerMax2by2(int in_size);

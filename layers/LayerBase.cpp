@@ -18,6 +18,16 @@ LayerBase::~LayerBase() {
 
 }
 
+int LayerBase::sBatchSize = 1;
+
+int LayerBase::getBatchSize() {
+    return sBatchSize;
+}
+
+void LayerBase::setBatchSize(int batch_size) {
+    sBatchSize = batch_size;
+}
+
 void LayerBase::init() {
     setName("??");
     setType(BASE);
