@@ -12,7 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="042a7085-13ef-4c4f-a1ac-00d99bb3b05d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/UserInput.h" afterPath="$PROJECT_DIR$/utils/UserInput.h" />
     </list>
     <ignored path="Research_S16.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,14 +99,12 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="UserInput.h" pinned="false" current-in-tab="false">
+          <file leaf-file-name="UserInput.h" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/utils/UserInput.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-                  <folding>
-                    <element signature="e#145#163#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="60">
+                  <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -123,7 +121,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GenerateLayers.h" pinned="false" current-in-tab="true">
+          <file leaf-file-name="GenerateLayers.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/utils/GenerateLayers.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="135">
@@ -202,12 +200,12 @@
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/layers/LayerBase.cpp" />
         <option value="$PROJECT_DIR$/layers/LayerBase.h" />
-        <option value="$PROJECT_DIR$/utils/UserInput.h" />
         <option value="$PROJECT_DIR$/utils/UserInput.cpp" />
         <option value="$PROJECT_DIR$/layers/InputLayer.h" />
         <option value="$PROJECT_DIR$/layers/InputLayer.cpp" />
         <option value="$PROJECT_DIR$/utils/GenerateLayers.h" />
         <option value="$PROJECT_DIR$/utils/GenerateLayers.cpp" />
+        <option value="$PROJECT_DIR$/utils/UserInput.h" />
       </list>
     </option>
   </component>
@@ -626,9 +624,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
           <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
-          <folding>
-            <element signature="e#145#163#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -943,16 +939,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/UserInput.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-          <folding>
-            <element signature="e#145#163#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layers/InputLayer.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1007,6 +993,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/UserInput.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
           <folding />
         </state>
       </provider>

@@ -6,6 +6,7 @@
 #define RESEARCHDNNGENERATOR_USERINPUT_H
 
 
+#include <istream>
 #include <fstream>
 #include <iostream>
 #include <string>
