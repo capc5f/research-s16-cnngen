@@ -26,11 +26,13 @@
       <sourceFolder url="file://$MODULE_DIR$/layers/ConvolutionLayer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/layers/PoolingLayer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/layers/ReLULayer.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/utils/NetworkMode.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/utils/UserInput.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/utils/GenerateLayers.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utils/UserInput.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utils/Utilities.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utils/NetworkMode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/utils/GenerateLayers.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/utils/UserInput.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utils/Utilities.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ece8270project/Channel.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ece8270project/Channel.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ece8270project/Image.h" isTestSource="false" />
