@@ -13,6 +13,7 @@ GenerateLayers::GenerateLayers(UserInput in) {
     this->mNumConvLayers = in.getNumConvLayers();
     this->mConvFilterSize = in.getConvFilterSize();
     this->mNumFullyConnLayers = in.getNumFullyConnLayers();
+    this->mOutputDim = in.getOutputDim();
     this->mInputWidth = in.getInputWidth();
     this->mInputHeight = in.getInputHeight();
     this->mNumInputChannels = in.getNumInputChannels();
@@ -77,11 +78,14 @@ void GenerateLayers::buildLayerList() {
             }
 
             for ( i = 0; i < mNumFullyConnLayers - 1; ++i ) {
-                InnerProductLayer *i = buildInnerProductLayer(size, size);
-                layers.push_back(i);
+                InnerProductLayer *ip = buildInnerProductLayer(size, size);
+                ReLULayer *r = buildReLULayer(size);
+                layers.push_back(ip);
+                layers.push_back(r);
             }
-            InnerProductLayer *i = buildInnerProductLayer(size, mOutputDim);
-            layers.push_back(i);
+            std::cout << "Size: " << size <<  ", Output dim: " << mOutputDim << std::endl;
+            InnerProductLayer *ip = buildInnerProductLayer(size, mOutputDim);
+            layers.push_back(ip);
 
             break;
         }
