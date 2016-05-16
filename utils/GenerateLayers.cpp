@@ -19,6 +19,7 @@ GenerateLayers::GenerateLayers(UserInput in) {
     this->mThreshold = in.getThreshold() / 100.0;
 
     buildLayerList();
+//    setTopAndBottom();
 }
 
 void GenerateLayers::init() {
@@ -75,18 +76,6 @@ void GenerateLayers::buildLayerList() {
                 layers.push_back(p);
                 size = p->getOutputWidth();
             }
-
-            /*
-            for (i = 0; i < mNumConvLayers; ++i) {
-                ConvolutionLayer *c = buildConvolutionLayer(size, mConvFilterSize, mNumChannels);
-                ReLULayer *r = buildReLULayer(c->getOutputWidth());
-                PoolingLayer *p = buildPoolingLayerMax2by2(c->getOutputWidth());
-                layers.push_back(c);
-                layers.push_back(r);
-                layers.push_back(p);
-                size = p->getOutputWidth();
-            }
-            */
 
             for ( i = 0; i < K; ++i ) {
                 InnerProductLayer *ip = buildInnerProductLayer(size, size);
@@ -185,14 +174,6 @@ ConvolutionLayer* GenerateLayers::buildConvolutionLayer(int in_size, int f_size,
     return convolutionLayer;
 }
 
-int checkConvPadding(int filter_size) {
-    int pad = ( filter_size - 1 );
-    if ( pad % 2 != 0 )
-        return -1;
-    else
-        return pad / 2;
-}
-
 /**
 * Pooling equations:
 *  W2 = [ (W1 - F) / S ] + 1
@@ -266,4 +247,25 @@ InnerProductLayer* GenerateLayers::buildInnerProductLayer(int in_width, int in_h
     InnerProductLayer *innerProductLayer = new InnerProductLayer(ss.str(), in_width, in_height, out_width, out_height);
 
     return innerProductLayer;
+}
+
+void GenerateLayers::setTopAndBottom() {
+    std::vector<LayerBase *>::iterator iter;
+    std::string top;
+    std::string bottom;
+    for ( iter = mLayerList.begin(); iter != mLayerList.end(); ++iter ) {
+        if ( iter != mLayerList.begin() )
+            (*iter)->setBottom(bottom);
+        top = (*iter)->getName();
+        (*iter)->setTop(top);
+        bottom = (*iter)->getName();
+    }
+}
+
+int checkConvPadding(int filter_size) {
+    int pad = ( filter_size - 1 );
+    if ( pad % 2 != 0 )
+        return -1;
+    else
+        return pad / 2;
 }

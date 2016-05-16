@@ -11,7 +11,7 @@ void cleanup();
 
 int main(int argc, const char **argv) {
 
-    atexit(cleanup);
+//    atexit(cleanup);
 
     UserInput in(false);
     if ( !in.isValidInput() ) {

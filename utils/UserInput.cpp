@@ -28,15 +28,15 @@ UserInput::UserInput(bool withInputFile) {
 }
 
 UserInput::~UserInput() {
+
+}
+
+void UserInput::init() {
     mHasInputFilename = false;
     mIsValidInput = true;
     mHasNetworkName = false;
 
     mNumberInput = 1;
-}
-
-void UserInput::init() {
-
 }
 
 bool UserInput::isValidInput() {

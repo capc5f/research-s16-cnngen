@@ -98,6 +98,7 @@ void displayPrototxtOutput(UserInput in, std::vector <LayerBase *> layers) {
         Prototxt *prototxt = new Prototxt(dir + filename, network_name, layers);
         prototxt->writeLayersToPrototxt();
 */
+
     cout << "\nSnapshot of the generated prototxt file:\n" << "name: \"" << network_name << "\"" << endl;
     for (unsigned long i = 0; i < layers.size(); ++i) {
         switch (layers.at(i)->getLayerType()) {
