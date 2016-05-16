@@ -3,7 +3,7 @@ NV_FLAGS = --compiler-options -fopenmp
 LINK = -lcublas -lcudnn
 CC = g++
 LAYER_DIR = ../layers/
-LAYER_HELP_DIR = ../layers/layer_helpers/
+LAYER_HELPER_DIR = ../layers/layer_helpers/
 
 all:	main
 
