@@ -22,7 +22,7 @@
 class GenerateLayers {
 private:
     std::vector <LayerBase *> mLayerList;
-    int mTotalLayers;
+    unsigned long mTotalLayers;
     int mNumberInput;
     int mInputWidth;
     int mInputHeight;
@@ -49,9 +49,13 @@ private:
     InnerProductLayer* buildInnerProductLayer(int in_width, int in_height, int out_width, int out_height);
     void setTopAndBottom();
 
+    void setTotalLayers();
+
 public:
     GenerateLayers(UserInput in);
     std::vector <LayerBase *> getLayerList();
+
+    unsigned long getTotalNumberLayers();
 };
 
 int checkConvPadding(int filter_size);

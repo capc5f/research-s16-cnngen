@@ -25,7 +25,8 @@ int main(int argc, const char **argv) {
 //    layers = getAlexNetLayers();
 
     if ( in.doGeneratePrototxt() ) {
-        displayPrototxtOutput(in, layers);
+        displayPrototxtOutput(in, layers, true);
+//        displayPrototxtOutput(in, layers, false);
     }
 
     layers.clear();

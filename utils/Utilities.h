@@ -16,7 +16,8 @@
 #include "UserInput.h"
 
 std::vector <LayerBase *> getAlexNetLayers();
-void displayPrototxtOutput(UserInput in, std::vector <LayerBase *> layers);
+
+void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool displayLayerSizes);
 
 
 #endif //RESEARCHDNNGENERATOR_UTILITIES_H

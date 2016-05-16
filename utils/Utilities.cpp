@@ -86,13 +86,14 @@ std::vector <LayerBase *> getAlexNetLayers() {
     return layers;
 }
 
-void displayPrototxtOutput(UserInput in, std::vector <LayerBase *> layers) {
+void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool displayLayerSizes) {
     if ( layers.empty() )
         return;
 
     string dir = "/Users/styles/Code/Research_S16/output_files/";
     string filename = in.getInputFilename();
     string network_name = in.getNetworkName();
+    stringstream ss;
 /*
         cout << "Generating prototxt named <" << filename << "> in directory <" << dir << ">" << endl;
         Prototxt *prototxt = new Prototxt(dir + filename, network_name, layers);
@@ -106,7 +107,8 @@ void displayPrototxtOutput(UserInput in, std::vector <LayerBase *> layers) {
                 InputLayer *il = (InputLayer *) layers.at(i);
                 if (il != NULL) {
                     cout << il->toString();
-                    // cout << "Input layer size: W = " << il->getWidth() << ", H = " << il->getHeight() << endl;
+                    ss << i << ") layer: " << il->getName() << ", size: W = " << il->getOutputWidth() << ", H = " <<
+                    il->getOutputHeight() << endl;
                 }
                 break;
             }
@@ -115,7 +117,8 @@ void displayPrototxtOutput(UserInput in, std::vector <LayerBase *> layers) {
                 ConvolutionLayer *cl = (ConvolutionLayer *) layers.at(i);
                 if (cl != NULL) {
                     cout << cl->toString();
-                    cout << "Convolution layer size: W = " << cl->getOutputWidth() << ", H = " << cl->getOutputHeight() << endl;
+                    ss << i << ") layer: " << cl->getName() << ", size: W = " << cl->getOutputWidth() << ", H = " <<
+                    cl->getOutputHeight() << endl;
                 }
                 break;
             }
@@ -124,7 +127,8 @@ void displayPrototxtOutput(UserInput in, std::vector <LayerBase *> layers) {
                 PoolingLayer *pl = (PoolingLayer *) layers.at(i);
                 if (pl != NULL) {
                     cout << pl->toString();
-                    cout << "Pooling layer size: W = " << pl->getOutputWidth() << ", H = " << pl->getOutputHeight() << endl;
+                    ss << i << ") layer: " << pl->getName() << ", size: W = " << pl->getOutputWidth() << ", H = " <<
+                    pl->getOutputHeight() << endl;
                 }
                 break;
             }
@@ -133,7 +137,8 @@ void displayPrototxtOutput(UserInput in, std::vector <LayerBase *> layers) {
                 ReLULayer *rl = (ReLULayer *) layers.at(i);
                 if (rl != NULL) {
                     cout << rl->toString();
-                    cout << "ReLU layer size: W = " << rl->getOutputWidth() << ", H = " << rl->getOutputHeight() << endl;
+                    ss << i << ") layer: " << rl->getName() << ", size: W = " << rl->getOutputWidth() << ", H = " <<
+                    rl->getOutputHeight() << endl;
                 }
                 break;
             }
@@ -142,7 +147,8 @@ void displayPrototxtOutput(UserInput in, std::vector <LayerBase *> layers) {
                 InnerProductLayer *ipl = (InnerProductLayer *) layers.at(i);
                 if (ipl != NULL) {
                     cout << ipl->toString();
-                    cout << "Fully connected layer size: W = " << ipl->getOutputWidth() << ", H = " << ipl->getOutputHeight() << endl;
+                    ss << i << ") layer: " << ipl->getName() << ", size: W = " << ipl->getOutputWidth() << ", H = " <<
+                    ipl->getOutputHeight() << endl;
                 }
                 break;
             }
@@ -152,4 +158,7 @@ void displayPrototxtOutput(UserInput in, std::vector <LayerBase *> layers) {
             }
         }
     }
+
+    if (displayLayerSizes)
+        cout << ss.str();
 }

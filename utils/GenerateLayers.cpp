@@ -20,9 +20,11 @@ GenerateLayers::GenerateLayers(UserInput in) {
 
     buildLayerList();
     setTopAndBottom();
+    setTotalLayers();
 }
 
 void GenerateLayers::init() {
+    mTotalLayers = 0;
     mNumConvUsed = 0;
     mNumPoolUsed = 0;
     mNumReluUsed = 0;
@@ -109,6 +111,7 @@ void GenerateLayers::buildLayerList() {
                     ConvolutionLayer *c = buildConvolutionLayer(size, mConvFilterSize, mNumInputChannels);
                     ReLULayer *r = buildReLULayer(size);
                     layers.push_back(c);
+
                     layers.push_back(r);
                 }
                 PoolingLayer *p = buildPoolingLayerMax2by2(size);
@@ -260,6 +263,14 @@ void GenerateLayers::setTopAndBottom() {
         (*iter)->setTop(top);
         bottom = (*iter)->getName();
     }
+}
+
+void GenerateLayers::setTotalLayers() {
+    this->mTotalLayers = mLayerList.size();
+}
+
+unsigned long GenerateLayers::getTotalNumberLayers() {
+    return this->mTotalLayers;
 }
 
 int checkConvPadding(int filter_size) {
