@@ -6,17 +6,14 @@ LAYER_DIR = ../layers/
 LAYER_HELPER_DIR = ../layers/layer_helpers/
 OBJDIR = ./obj/
 
-$(OBJDIR):
-	mkdir -p $(OBJDIR)
-
-$(OBJDIR)/%.o: %.cpp
-	$(CC) -c -o $@ $<
-
 all:	main
 
 clean:
 	rm nn_setup
 	rm -r $(OBJDIR)
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
 
 main: LayerBase ConvolutionLayer InnerProductLayer InputLayer PoolingLayer ReLULayer Param
 	$(NVCC) $(LINK) -o nn_setup NNsetup.cu LayerBase.o ConvolutionLayer.o InnerProductLayer.o InputLayer.o PoolingLayer.o ReLULayer.o Param.o
@@ -41,3 +38,6 @@ ReLULayer:
 
 Param:
 	$(CC) -c $(LAYER_HELPER_DIR)Param.cpp
+
+$(OBJDIR)/%.o: %.cpp
+	$(CC) -c -o $@ $<
