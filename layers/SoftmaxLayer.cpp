@@ -4,10 +4,7 @@
 
 #include "SoftmaxLayer.h"
 
-SoftMaxLayer::SoftMaxLayer(std::string name) {
-    setName(name);
-    setType(SOFTMAX);
-}
+SoftMaxLayer::SoftMaxLayer(std::string name): LayerBase(name, SOFTMAX) { }
 
 SoftMaxLayer::~SoftMaxLayer() {
 

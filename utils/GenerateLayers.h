@@ -40,6 +40,7 @@ private:
     PoolingLayer* buildPoolingLayerMax2by2(int in_size);
     ReLULayer* buildReLULayer(int in_size);
     InnerProductLayer* buildInnerProductLayer(int in_size, int out_size);
+    InnerProductLayer* buildInnerProductLayer(int in_width, int in_height, int out_width, int out_height);
 
 public:
     GenerateLayers(UserInput in);

@@ -27,6 +27,7 @@ public:
     LRNLayer(std::string name);
     LRNLayer(std::string name, int local_size, float alpha, float beta, NormRegion norm_region);
     ~LRNLayer();
+    void init();
     int getLocalSize();
     void setLocalSize(int local_size);
     float getAlpha();

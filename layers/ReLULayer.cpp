@@ -4,10 +4,7 @@
 
 #include "ReLULayer.h"
 
-ReLULayer::ReLULayer(std::string name) {
-    setName(name);
-    setType(RELU);
-}
+ReLULayer::ReLULayer(std::string name): LayerBase(name, RELU) { }
 
 ReLULayer::~ReLULayer() {
 

@@ -88,12 +88,13 @@ void GenerateLayers::buildLayerList() {
 
             for ( i = 0; i < mNumFullyConnLayers - 1; ++i ) {
                 InnerProductLayer *ip = buildInnerProductLayer(size, size);
+//                InnerProductLayer *ip = buildInnerProductLayer(size, size, size, size);
                 ReLULayer *r = buildReLULayer(size);
                 layers.push_back(ip);
                 layers.push_back(r);
             }
 
-            InnerProductLayer *ip = buildInnerProductLayer(size, mOutputDim);
+            InnerProductLayer *ip = buildInnerProductLayer(size, size, 1, mOutputDim);
             layers.push_back(ip);
 
             break;
@@ -199,6 +200,16 @@ InnerProductLayer* GenerateLayers::buildInnerProductLayer(int in_size, int out_s
     innerProductLayer->setInputWidth(in_size);
     innerProductLayer->setOutputHeight(out_size);
     innerProductLayer->setOutputWidth(out_size);
+
+    return innerProductLayer;
+}
+
+InnerProductLayer* GenerateLayers::buildInnerProductLayer(int in_width, int in_height, int out_width,
+                                                          int out_height) {
+    std::stringstream ss;
+    ss << "ip" << ++mNumFullyConnUsed;
+
+    InnerProductLayer *innerProductLayer = new InnerProductLayer(ss.str(), in_width, in_height, out_width, out_height);
 
     return innerProductLayer;
 }

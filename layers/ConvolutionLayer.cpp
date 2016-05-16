@@ -4,9 +4,51 @@
 
 #include "ConvolutionLayer.h"
 
-ConvolutionLayer::ConvolutionLayer(std::string name) {
-    setType(CONVOLUTION);
-    setName(name);
+ConvolutionLayer::ConvolutionLayer(std::string name): LayerBase(name, CONVOLUTION) {
+    init();
+}
+
+ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int filter_size, int stride): LayerBase(name, CONVOLUTION) {
+    init();
+    setInputDepth(depth);
+    setFilterDepth(depth);
+    setOutputDepth(depth);
+    setFilterSize(filter_size);
+    setStride(stride);
+}
+
+ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int pad, int filter_size, int stride): LayerBase(name, CONVOLUTION) {
+    init();
+    setInputDepth(depth);
+    setFilterDepth(depth);
+    setOutputDepth(depth);
+    setPadding(pad);
+    setFilterSize(filter_size);
+    setStride(stride);
+}
+
+// todo: does nothing right now.. has params for Caffe prototxt
+ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int filter_size, int stride, WeightFiller weight_filler, BiasFiller bias_filler): LayerBase(name, CONVOLUTION) {
+    init();
+}
+
+ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int pad, int filter_size, int stride, int num_gen_param): LayerBase(name, CONVOLUTION) {
+    init();
+    setInputDepth(depth);
+    setFilterDepth(depth);
+    setOutputDepth(depth);
+    setPadding(pad);
+    setFilterSize(filter_size);
+    setStride(stride);
+
+//    mGenParams.resize(num_gen_param);
+}
+
+ConvolutionLayer::~ConvolutionLayer() {
+
+}
+
+void ConvolutionLayer::init() {
     mPadding = 0;
     mStride = 1;
     mUpscaleX = 1;
@@ -16,68 +58,6 @@ ConvolutionLayer::ConvolutionLayer(std::string name) {
     mHasWeightFiller = false;
     mHasBiasFiller = false;
     mHasPadding = false;
-}
-
-ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int filter_size, int stride) {
-    setType(CONVOLUTION);
-    setName(name);
-    setInputDepth(depth);
-    setFilterDepth(depth);
-    setOutputDepth(depth);
-    setFilterSize(filter_size);
-    setStride(stride);
-    mPadding = 0;
-    mUpscaleX = 1;
-    mUpscaleY = 1;
-    mAlpha = 0.0;
-    mBeta = 0.0;
-    mHasWeightFiller = false;
-    mHasBiasFiller = false;
-    mHasPadding = false;
-}
-
-ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int pad, int filter_size, int stride) {
-    setType(CONVOLUTION);
-    setName(name);
-    setInputDepth(depth);
-    setFilterDepth(depth);
-    setOutputDepth(depth);
-    setPadding(pad);
-    setFilterSize(filter_size);
-    setStride(stride);
-    mUpscaleX = 1;
-    mUpscaleY = 1;
-    mAlpha = 0.0;
-    mBeta = 0.0;
-    mHasWeightFiller = false;
-    mHasBiasFiller = false;
-}
-
-// todo: does nothing right now.. has params for Caffe prototxt
-ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int filter_size, int stride, WeightFiller weight_filler, BiasFiller bias_filler) {
-
-}
-
-ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int pad, int filter_size, int stride, int num_gen_param) {
-    setType(CONVOLUTION);
-    setName(name);
-    setInputDepth(depth);
-    setFilterDepth(depth);
-    setOutputDepth(depth);
-    setPadding(pad);
-    setFilterSize(filter_size);
-    setStride(stride);
-    mUpscaleX = 1;
-    mUpscaleY = 1;
-    mAlpha = 0.0;
-    mBeta = 0.0;
-    mHasWeightFiller = false;
-    mHasBiasFiller = false;
-//    mGenParams.resize(num_gen_param);
-}
-
-ConvolutionLayer::~ConvolutionLayer() {
-
 }
 
 std::string ConvolutionLayer::toString() {

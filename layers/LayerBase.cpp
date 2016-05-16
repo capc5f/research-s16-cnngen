@@ -4,20 +4,21 @@
 
 #include "LayerBase.h"
 
-LayerBase::LayerBase() {
-    mHasBottom = false;
-    mHasTop = false;
-}
-
 LayerBase::LayerBase(std::string name, LayerType type) {
-    mHasBottom = false;
-    mHasTop = false;
+    init();
     setName(name);
     setType(type);
 }
 
 LayerBase::~LayerBase() {
 
+}
+
+void LayerBase::init() {
+    setName("??");
+    setType(BASE);
+    mHasBottom = false;
+    mHasTop = false;
 }
 
 int LayerBase::getInputWidth() {

@@ -20,6 +20,7 @@ private:
 public:
     InputLayer(std::string name, int num, int channels, int height, int width);
     ~InputLayer();
+    void init();
     int getHeight();
     int getWidth();
     int getNumChannels();

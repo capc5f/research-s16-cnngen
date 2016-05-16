@@ -4,25 +4,19 @@
 
 #include "PoolingLayer.h"
 
-PoolingLayer::PoolingLayer(std::string name) {
-    setType(POOLING);
-    setName(name);
-    mStride = 1;
-    mPadding = 0;
-    mHasPadding = false;
+PoolingLayer::PoolingLayer(std::string name): LayerBase(name, POOLING) {
+    init();
 }
 
-PoolingLayer::PoolingLayer(std::string name, PoolingType pool, int kernel_size, int stride) {
-    setName(name);
-    setType(POOLING);
+PoolingLayer::PoolingLayer(std::string name, PoolingType pool, int kernel_size, int stride): LayerBase(name, POOLING) {
+    init();
     setPoolingType(pool);
     setKernelSize(kernel_size);
     setStride(stride);
 }
 
-PoolingLayer::PoolingLayer(std::string name, PoolingType pool, int kernel_size, int stride, int pad) {
-    setName(name);
-    setType(POOLING);
+PoolingLayer::PoolingLayer(std::string name, PoolingType pool, int kernel_size, int stride, int pad): LayerBase(name, POOLING) {
+    init();
     setPoolingType(pool);
     setKernelSize(kernel_size);
     setStride(stride);
@@ -32,6 +26,12 @@ PoolingLayer::PoolingLayer(std::string name, PoolingType pool, int kernel_size, 
 
 PoolingLayer::~PoolingLayer() {
 
+}
+
+void PoolingLayer::init() {
+    mStride = 1;
+    mPadding = 0;
+    mHasPadding = false;
 }
 
 bool PoolingLayer::hasPadding() {

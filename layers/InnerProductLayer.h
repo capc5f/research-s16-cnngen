@@ -1,5 +1,5 @@
 //
-// Created by Cody Price on 5/12/16.
+//  Copyright © 2016 Cody Price. All rights reserved.
 //
 
 #ifndef RESEARCHDNNGENERATOR_INNERPRODUCTLAYER_H
@@ -16,8 +16,6 @@
 class InnerProductLayer: public LayerBase {
 private:
     std::vector <Param> mGenParams;
-    int mWidth;
-    int mHeight;
     int mNumOutput;
     WeightFiller mWeightFiller;
     BiasFiller mBiasFiller;
@@ -27,7 +25,9 @@ private:
 public:
     InnerProductLayer(std::string name);
     InnerProductLayer(std::string name, int num_output);
+    InnerProductLayer(std::string name, int in_width, int in_height, int out_width, int out_height);
     ~InnerProductLayer();
+    void init();
     int getNumOutput();
     void setNumOutput(int num_output);
     void setParamAtIndex(int index, int lr_mult, int decay_mult);

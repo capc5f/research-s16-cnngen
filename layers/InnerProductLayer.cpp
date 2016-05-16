@@ -4,23 +4,32 @@
 
 #include "InnerProductLayer.h"
 
-InnerProductLayer::InnerProductLayer(std::string name) {
-    setName(name);
-    setType(INNER_PRODUCT);
-    mHasWeightFiller = false;
-    mHasBiasFiller = false;
+InnerProductLayer::InnerProductLayer(std::string name): LayerBase(name, INNER_PRODUCT) {
+    init();
 }
 
-InnerProductLayer::InnerProductLayer(std::string name, int num_output) {
-    setName(name);
-    setType(INNER_PRODUCT);
+InnerProductLayer::InnerProductLayer(std::string name, int num_output): LayerBase(name, INNER_PRODUCT) {
+    init();
     setNumOutput(num_output);
-    mHasWeightFiller = false;
-    mHasBiasFiller = false;
+}
+
+InnerProductLayer::InnerProductLayer(std::string name, int in_width, int in_height, int out_width, int out_height): LayerBase(name, INNER_PRODUCT) {
+    init();
+    setNumOutput(out_height);
+    setInputWidth(in_width);
+    setInputHeight(in_height);
+    setOutputWidth(out_width);
+    setOutputHeight(out_height);
 }
 
 InnerProductLayer::~InnerProductLayer() {
 
+}
+
+void InnerProductLayer::init() {
+    mHasWeightFiller = false;
+    mHasBiasFiller = false;
+    setOutputDepth(1);
 }
 
 std::string InnerProductLayer::toString() {

@@ -38,6 +38,7 @@ public:
     ConvolutionLayer(std::string name, int depth, int kernel_size, int stride, WeightFiller weight_filler, BiasFiller bias_filler);
     ConvolutionLayer(std::string name, int depth, int pad, int kernel_size, int stride, int num_gen_param);
     ~ConvolutionLayer();
+    void init();
     bool hasPadding();
     int getPadding();
     void setPadding(int pad);

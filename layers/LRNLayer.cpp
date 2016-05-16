@@ -4,17 +4,12 @@
 
 #include "LRNLayer.h"
 
-LRNLayer::LRNLayer(std::string name) {
-    setName(name);
-    setType(LRN);
-    mLocalSize = 5;
-    mAlpha = 1;
-    mBeta = 5;
+LRNLayer::LRNLayer(std::string name): LayerBase(name, LRN) {
+    init();
 }
 
-LRNLayer::LRNLayer(std::string name, int local_size, float alpha, float beta, NormRegion norm_region) {
-    setName(name);
-    setType(LRN);
+LRNLayer::LRNLayer(std::string name, int local_size, float alpha, float beta, NormRegion norm_region): LayerBase(name, LRN) {
+    init();
     setLocalSize(local_size);
     setAlpha(alpha);
     setBeta(beta);
@@ -23,6 +18,12 @@ LRNLayer::LRNLayer(std::string name, int local_size, float alpha, float beta, No
 
 LRNLayer::~LRNLayer() {
 
+}
+
+void LRNLayer::init() {
+    mLocalSize = 5;
+    mAlpha = 1;
+    mBeta = 5;
 }
 
 int LRNLayer::getLocalSize() {
