@@ -33,16 +33,6 @@
     <splitter split-orientation="horizontal" split-proportion="0.44884038">
       <split-first>
         <leaf>
-          <file leaf-file-name="PoolingLayer.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/layers/PoolingLayer.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="PoolingLayer.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/layers/PoolingLayer.cpp">
               <provider selected="true" editor-type-id="text-editor">
@@ -123,12 +113,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Image.h" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Image.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ece8270project/Image.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="240">
                   <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ConvolutionLayer.h" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/layers/ConvolutionLayer.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="165">
+                  <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+                  <folding>
+                    <element signature="e#159#178#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -179,7 +181,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GenerateLayers.h" pinned="false" current-in-tab="true">
+          <file leaf-file-name="GenerateLayers.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/utils/GenerateLayers.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="285">
@@ -191,11 +193,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ConvolutionLayer.cpp" pinned="false" current-in-tab="false">
+          <file leaf-file-name="ConvolutionLayer.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/layers/ConvolutionLayer.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="162" column="49" selection-start-line="162" selection-start-column="49" selection-end-line="162" selection-end-column="49" />
+                <state relative-caret-position="330">
+                  <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
                   <folding />
                 </state>
               </provider>
@@ -235,8 +237,6 @@
         <option value="$PROJECT_DIR$/josh/temp.txt" />
         <option value="$PROJECT_DIR$/layers/LayerBase.h" />
         <option value="$PROJECT_DIR$/layers/LayerBase.cpp" />
-        <option value="$PROJECT_DIR$/layers/ConvolutionLayer.h" />
-        <option value="$PROJECT_DIR$/layers/ConvolutionLayer.cpp" />
         <option value="$PROJECT_DIR$/layers/InnerProductLayer.h" />
         <option value="$PROJECT_DIR$/layers/InnerProductLayer.cpp" />
         <option value="$PROJECT_DIR$/layers/LRNLayer.h" />
@@ -249,6 +249,8 @@
         <option value="$PROJECT_DIR$/utils/GenerateLayers.cpp" />
         <option value="$PROJECT_DIR$/ece8270project/Channel.h" />
         <option value="$PROJECT_DIR$/ece8270project/Channel.cpp" />
+        <option value="$PROJECT_DIR$/layers/ConvolutionLayer.h" />
+        <option value="$PROJECT_DIR$/layers/ConvolutionLayer.cpp" />
       </list>
     </option>
   </component>
@@ -814,16 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layers/ConvolutionLayer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-          <folding>
-            <element signature="e#159#178#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layers/InnerProductLayer.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -906,14 +898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layers/ConvolutionLayer.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="162" column="49" selection-start-line="162" selection-start-column="49" selection-end-line="162" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/prototxt/Prototxt.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -936,16 +920,6 @@
           <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
           <folding>
             <element signature="e#145#163#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/GenerateLayers.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
-          <folding>
-            <element signature="e#154#172#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -978,6 +952,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layers/ConvolutionLayer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+          <folding>
+            <element signature="e#159#178#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/GenerateLayers.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+          <folding>
+            <element signature="e#154#172#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layers/ConvolutionLayer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
           <folding />
         </state>
       </provider>

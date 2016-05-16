@@ -7,6 +7,8 @@
 ConvolutionLayer::ConvolutionLayer(std::string name) {
     setType(CONVOLUTION);
     setName(name);
+    mPadding = 0;
+    mStride = 1;
     mHasWeightFiller = false;
     mHasBiasFiller = false;
     mHasPadding = false;
@@ -18,6 +20,7 @@ ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int filter_size,
     setDepth(depth);
     setFilterSize(filter_size);
     setStride(stride);
+    mPadding = 0;
     mHasWeightFiller = false;
     mHasBiasFiller = false;
     mHasPadding = false;

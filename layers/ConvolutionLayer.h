@@ -18,9 +18,9 @@ class ConvolutionLayer: public LayerBase {
 private:
     std::vector <Param> mGenParams;
     int mDepth;
-    int mPadding = 0;
+    int mPadding;
     int mFilterSize;
-    int mStride = 1;
+    int mStride;
     WeightFiller mWeightFiller;
     BiasFiller mBiasFiller;
     bool mHasWeightFiller;
