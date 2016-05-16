@@ -83,7 +83,7 @@ void GenerateLayers::buildLayerList() {
                 layers.push_back(ip);
                 layers.push_back(r);
             }
-            std::cout << "Size: " << size <<  ", Output dim: " << mOutputDim << std::endl;
+
             InnerProductLayer *ip = buildInnerProductLayer(size, mOutputDim);
             layers.push_back(ip);
 
