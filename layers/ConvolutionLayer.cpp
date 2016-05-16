@@ -17,7 +17,8 @@ ConvolutionLayer::ConvolutionLayer(std::string name) {
 ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int filter_size, int stride) {
     setType(CONVOLUTION);
     setName(name);
-    setDepth(depth);
+    setInputDepth(depth);
+    setOutputDepth(depth);
     setFilterSize(filter_size);
     setStride(stride);
     mPadding = 0;
@@ -29,7 +30,8 @@ ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int filter_size,
 ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int pad, int filter_size, int stride) {
     setType(CONVOLUTION);
     setName(name);
-    setDepth(depth);
+    setInputDepth(depth);
+    setOutputDepth(depth);
     setPadding(pad);
     setFilterSize(filter_size);
     setStride(stride);
@@ -44,7 +46,8 @@ ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int filter_size,
 ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int pad, int filter_size, int stride, int num_gen_param) {
     setType(CONVOLUTION);
     setName(name);
-    setDepth(depth);
+    setInputDepth(depth);
+    setOutputDepth(depth);
     setPadding(pad);
     setFilterSize(filter_size);
     setStride(stride);
@@ -85,7 +88,7 @@ std::string ConvolutionLayer::toString() {
     }
 
     ss << "  convolution_param {" << std::endl;
-    ss << "    num_output: " << getDepth() << std::endl;
+    ss << "    num_output: " << getOutputDepth() << std::endl;
 
     if ( hasPadding() )
         ss << "    pad: " << getPadding() << std::endl;
@@ -111,14 +114,6 @@ std::string ConvolutionLayer::toString() {
     ss << "}" << std::endl;
 
     return ss.str();
-}
-
-int ConvolutionLayer::getDepth() {
-    return this->mDepth;
-}
-
-void ConvolutionLayer::setDepth(int depth) {
-    this->mDepth = depth;
 }
 
 bool ConvolutionLayer::hasPadding() {

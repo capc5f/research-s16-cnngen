@@ -17,7 +17,6 @@
 class ConvolutionLayer: public LayerBase {
 private:
     std::vector <Param> mGenParams;
-    int mDepth;
     int mPadding;
     int mFilterSize;
     int mStride;
@@ -34,8 +33,6 @@ public:
     ConvolutionLayer(std::string name, int depth, int kernel_size, int stride, WeightFiller weight_filler, BiasFiller bias_filler);
     ConvolutionLayer(std::string name, int depth, int pad, int kernel_size, int stride, int num_gen_param);
     ~ConvolutionLayer();
-    int getDepth();
-    void setDepth(int depth);
     bool hasPadding();
     int getPadding();
     void setPadding(int pad);

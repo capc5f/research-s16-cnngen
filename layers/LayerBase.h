@@ -21,18 +21,30 @@ protected:
     std::string mTop;
     bool mHasTop;
     bool mHasBottom;
-    int mWidth;
-    int mHeight;
+    int mInputWidth;
+    int mInputHeight;
+    int mInputDepth;
+    int mOutputWidth;
+    int mOutputHeight;
+    int mOutputDepth;
 //    LayerCategory mLayerCat; // todo: FUTUREWORK -- switch from LayerType enum to this
 
 public:
     LayerBase();
     LayerBase(std::string name, LayerType type);
     ~LayerBase();
-    int getWidth();
-    void setWidth(int width);
-    int getHeight();
-    void setHeight(int height);
+    int getInputWidth();
+    void setInputWidth(int input_width);
+    int getInputHeight();
+    void setInputHeight(int input_height);
+    int getInputDepth();
+    void setInputDepth(int input_depth);
+    int getOutputWidth();
+    void setOutputWidth(int output_width);
+    int getOutputHeight();
+    void setOutputHeight(int output_height);
+    int getOutputDepth();
+    void setOutputDepth(int output_depth);
     bool hasTop();
     std::string getTop();
     void setTop(std::string top);

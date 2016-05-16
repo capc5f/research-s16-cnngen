@@ -20,20 +20,52 @@ LayerBase::~LayerBase() {
 
 }
 
-int LayerBase::getWidth() {
-    return this->mWidth;
+int LayerBase::getInputWidth() {
+    return this->mInputWidth;
 }
 
-void LayerBase::setWidth(int width) {
-    this->mWidth = width;
+void LayerBase::setInputWidth(int input_width) {
+    this->mInputWidth = input_width;
 }
 
-int LayerBase::getHeight() {
-    return this->mHeight;
+int LayerBase::getInputHeight() {
+    return this->mInputHeight;
 }
 
-void LayerBase::setHeight(int height) {
-    this->mHeight = height;
+void LayerBase::setInputHeight(int input_height) {
+    this->mInputHeight = input_height;
+}
+
+int LayerBase::getInputDepth() {
+    return this->mInputDepth;
+}
+
+void LayerBase::setInputDepth(int input_depth) {
+    this->mInputDepth = input_depth;
+}
+
+int LayerBase::getOutputWidth() {
+    return this->mOutputWidth;
+}
+
+void LayerBase::setOutputWidth(int output_width) {
+    this->mOutputWidth = output_width;
+}
+
+int LayerBase::getOutputHeight() {
+    return this->mOutputHeight;
+}
+
+void LayerBase::setOutputHeight(int output_height) {
+    this->mOutputHeight = output_height;
+}
+
+int LayerBase::getOutputDepth() {
+    return this->mOutputDepth;
+}
+
+void LayerBase::setOutputDepth(int output_depth) {
+    this->mOutputDepth = output_depth;
 }
 
 bool LayerBase::hasTop() {

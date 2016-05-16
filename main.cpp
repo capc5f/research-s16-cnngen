@@ -55,7 +55,7 @@ int main(int argc, const char **argv) {
                     ConvolutionLayer *cl = (ConvolutionLayer *) layers.at(i);
                     if (cl != NULL) {
                         cout << cl->toString();
-                        cout << "Convolution layer size: W = " << cl->getWidth() << ", H = " << cl->getHeight() << endl;
+                        cout << "Convolution layer size: W = " << cl->getOutputWidth() << ", H = " << cl->getOutputHeight() << endl;
                     }
                     break;
                 }
@@ -64,7 +64,7 @@ int main(int argc, const char **argv) {
                     PoolingLayer *pl = (PoolingLayer *) layers.at(i);
                     if (pl != NULL) {
                         cout << pl->toString();
-                        cout << "Pooling layer size: W = " << pl->getWidth() << ", H = " << pl->getHeight() << endl;
+                        cout << "Pooling layer size: W = " << pl->getOutputWidth() << ", H = " << pl->getOutputHeight() << endl;
                     }
                     break;
                 }
@@ -73,7 +73,7 @@ int main(int argc, const char **argv) {
                     ReLULayer *rl = (ReLULayer *) layers.at(i);
                     if (rl != NULL) {
                         cout << rl->toString();
-                        cout << "ReLU layer size: W = " << rl->getWidth() << ", H = " << rl->getHeight() << endl;
+                        cout << "ReLU layer size: W = " << rl->getOutputWidth() << ", H = " << rl->getOutputHeight() << endl;
                     }
                     break;
                 }
@@ -82,7 +82,7 @@ int main(int argc, const char **argv) {
                     InnerProductLayer *ipl = (InnerProductLayer *) layers.at(i);
                     if (ipl != NULL) {
                         cout << ipl->toString();
-                        cout << "Fully connected layer size: W = " << ipl->getWidth() << ", H = " << ipl->getHeight() << endl;
+                        cout << "Fully connected layer size: W = " << ipl->getOutputWidth() << ", H = " << ipl->getOutputHeight() << endl;
                     }
                     break;
                 }

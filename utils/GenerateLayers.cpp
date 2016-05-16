@@ -36,12 +36,12 @@ void GenerateLayers::buildLayerList() {
 
             for (i = 0; i < mNumConvLayers; ++i) {
                 ConvolutionLayer *c = buildConvolutionLayer(size, mConvFilterSize, mNumInputChannels);
-                ReLULayer *r = buildReLULayer(c->getWidth());
-                PoolingLayer *p = buildPoolingLayerMax2by2(c->getWidth());
+                ReLULayer *r = buildReLULayer(c->getOutputWidth());
+                PoolingLayer *p = buildPoolingLayerMax2by2(c->getOutputWidth());
                 layers.push_back(c);
                 layers.push_back(r);
                 layers.push_back(p);
-                size = p->getWidth();
+                size = p->getOutputWidth();
             }
 
             for (i = 0; i < mNumFullyConnLayers; ++i) {
@@ -65,7 +65,7 @@ void GenerateLayers::buildLayerList() {
                 }
                 PoolingLayer *p = buildPoolingLayerMax2by2(size);
                 layers.push_back(p);
-                size = p->getWidth();
+                size = p->getOutputWidth();
                 ratio = size / (float) mInputHeight;
             }
 
@@ -109,8 +109,10 @@ ConvolutionLayer* GenerateLayers::buildConvolutionLayer(int in_size, int f_size,
     std::stringstream ss;
     ss << "conv" << ++mNumConvUsed;
     ConvolutionLayer *convolutionLayer = new ConvolutionLayer(ss.str(), depth, p, f_size, s);
-    convolutionLayer->setWidth(W2);
-    convolutionLayer->setHeight(W2);
+    convolutionLayer->setInputWidth(W2);
+    convolutionLayer->setInputHeight(W2);
+    convolutionLayer->setOutputWidth(W2);
+    convolutionLayer->setOutputHeight(W2);
 
     return convolutionLayer;
 }
@@ -134,8 +136,10 @@ PoolingLayer* GenerateLayers::buildPoolingLayer(int in_size, int filter_size, Po
     PoolingLayer *poolingLayer = new PoolingLayer(ss.str(), type, filter_size, stride);
     int W2 = ( (in_size - filter_size ) / stride ) + 1;
 
-    poolingLayer->setHeight(W2);
-    poolingLayer->setWidth(W2);
+    poolingLayer->setInputHeight(W2);
+    poolingLayer->setInputWidth(W2);
+    poolingLayer->setOutputHeight(W2);
+    poolingLayer->setOutputWidth(W2);
 
     return poolingLayer;
 }
@@ -152,8 +156,10 @@ PoolingLayer* GenerateLayers::buildPoolingLayerMax2by2(int in_size) {
     PoolingLayer *poolingLayer = new PoolingLayer(ss.str(), MAX, filter_size, stride);
     int W2 = ( (in_size - filter_size ) / stride ) + 1;
 
-    poolingLayer->setHeight(W2);
-    poolingLayer->setWidth(W2);
+    poolingLayer->setInputHeight(W2);
+    poolingLayer->setInputWidth(W2);
+    poolingLayer->setOutputHeight(W2);
+    poolingLayer->setOutputWidth(W2);
 
     return poolingLayer;
 }
@@ -163,8 +169,10 @@ ReLULayer* GenerateLayers::buildReLULayer(int in_size) {
     ss << "relu" << ++mNumReluUsed;
 
     ReLULayer *reLULayer = new ReLULayer(ss.str());
-    reLULayer->setHeight(in_size);
-    reLULayer->setWidth(in_size);
+    reLULayer->setInputHeight(in_size);
+    reLULayer->setInputWidth(in_size);
+    reLULayer->setOutputHeight(in_size);
+    reLULayer->setOutputWidth(in_size);
 
     return reLULayer;
 }
@@ -174,8 +182,10 @@ InnerProductLayer* GenerateLayers::buildInnerProductLayer(int in_size, int out_s
     ss << "ip" << ++mNumFullyConnUsed;
 
     InnerProductLayer *innerProductLayer = new InnerProductLayer(ss.str(), out_size);
-    innerProductLayer->setHeight(in_size);
-    innerProductLayer->setWidth(in_size);
+    innerProductLayer->setInputHeight(in_size);
+    innerProductLayer->setInputWidth(in_size);
+    innerProductLayer->setOutputHeight(out_size);
+    innerProductLayer->setOutputWidth(out_size);
 
     return innerProductLayer;
 }
