@@ -26,8 +26,8 @@ private:
 
 public:
     PoolingLayer(std::string name);
-    PoolingLayer(std::string name, PoolingType pool, int kernel_size, int stride);
-    PoolingLayer(std::string name, PoolingType pool, int kernel_size, int stride, int pad);
+    PoolingLayer(std::string name, PoolingType pool, int filter_size, int stride);
+    PoolingLayer(std::string name, PoolingType pool, int filter_size, int stride, int pad);
     ~PoolingLayer();
     void init();
     bool hasPadding();

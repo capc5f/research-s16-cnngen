@@ -8,17 +8,17 @@ PoolingLayer::PoolingLayer(std::string name): LayerBase(name, POOLING) {
     init();
 }
 
-PoolingLayer::PoolingLayer(std::string name, PoolingType pool, int kernel_size, int stride): LayerBase(name, POOLING) {
+PoolingLayer::PoolingLayer(std::string name, PoolingType pool, int filter_size, int stride): LayerBase(name, POOLING) {
     init();
     setPoolingType(pool);
-    setKernelSize(kernel_size);
+    setKernelSize(filter_size);
     setStride(stride);
 }
 
-PoolingLayer::PoolingLayer(std::string name, PoolingType pool, int kernel_size, int stride, int pad): LayerBase(name, POOLING) {
+PoolingLayer::PoolingLayer(std::string name, PoolingType pool, int filter_size, int stride, int pad): LayerBase(name, POOLING) {
     init();
     setPoolingType(pool);
-    setKernelSize(kernel_size);
+    setKernelSize(filter_size);
     setStride(stride);
     setPadding(pad);
     this->mHasPadding = true;

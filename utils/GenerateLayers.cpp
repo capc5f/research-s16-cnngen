@@ -192,6 +192,8 @@ PoolingLayer* GenerateLayers::buildPoolingLayer(int in_size, int filter_size, Po
     poolingLayer->setInputWidth(W2);
     poolingLayer->setOutputHeight(W2);
     poolingLayer->setOutputWidth(W2);
+    poolingLayer->setInputDepth(mNumInputChannels);
+    poolingLayer->setOutputDepth(mNumInputChannels);
 
     return poolingLayer;
 }
@@ -212,6 +214,8 @@ PoolingLayer* GenerateLayers::buildPoolingLayerMax2by2(int in_size) {
     poolingLayer->setInputWidth(W2);
     poolingLayer->setOutputHeight(W2);
     poolingLayer->setOutputWidth(W2);
+    poolingLayer->setInputDepth(mNumInputChannels);
+    poolingLayer->setOutputDepth(mNumInputChannels);
 
     return poolingLayer;
 }
@@ -225,6 +229,8 @@ ReLULayer* GenerateLayers::buildReLULayer(int in_size) {
     reLULayer->setInputWidth(in_size);
     reLULayer->setOutputHeight(in_size);
     reLULayer->setOutputWidth(in_size);
+    reLULayer->setInputDepth(mNumInputChannels);
+    reLULayer->setOutputDepth(mNumInputChannels);
 
     return reLULayer;
 }
@@ -245,7 +251,7 @@ InnerProductLayer* GenerateLayers::buildInnerProductLayer(int in_size, int out_s
 InnerProductLayer* GenerateLayers::buildInnerProductLayer(int in_width, int in_height, int out_width,
                                                           int out_height) {
     std::stringstream ss;
-    ss << "ip" << ++mNumFullyConnUsed;
+    ss << "fullconn" << ++mNumFullyConnUsed;
 
     InnerProductLayer *innerProductLayer = new InnerProductLayer(ss.str(), in_width, in_height, out_width, out_height);
 
