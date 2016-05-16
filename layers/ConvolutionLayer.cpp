@@ -9,6 +9,10 @@ ConvolutionLayer::ConvolutionLayer(std::string name) {
     setName(name);
     mPadding = 0;
     mStride = 1;
+    mUpscaleX = 1;
+    mUpscaleY = 1;
+    mAlpha = 0.0;
+    mBeta = 0.0;
     mHasWeightFiller = false;
     mHasBiasFiller = false;
     mHasPadding = false;
@@ -23,6 +27,10 @@ ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int filter_size,
     setFilterSize(filter_size);
     setStride(stride);
     mPadding = 0;
+    mUpscaleX = 1;
+    mUpscaleY = 1;
+    mAlpha = 0.0;
+    mBeta = 0.0;
     mHasWeightFiller = false;
     mHasBiasFiller = false;
     mHasPadding = false;
@@ -37,6 +45,10 @@ ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int pad, int fil
     setPadding(pad);
     setFilterSize(filter_size);
     setStride(stride);
+    mUpscaleX = 1;
+    mUpscaleY = 1;
+    mAlpha = 0.0;
+    mBeta = 0.0;
     mHasWeightFiller = false;
     mHasBiasFiller = false;
 }
@@ -55,6 +67,10 @@ ConvolutionLayer::ConvolutionLayer(std::string name, int depth, int pad, int fil
     setPadding(pad);
     setFilterSize(filter_size);
     setStride(stride);
+    mUpscaleX = 1;
+    mUpscaleY = 1;
+    mAlpha = 0.0;
+    mBeta = 0.0;
     mHasWeightFiller = false;
     mHasBiasFiller = false;
 //    mGenParams.resize(num_gen_param);
@@ -155,6 +171,32 @@ int ConvolutionLayer::getStride() {
 
 void ConvolutionLayer::setStride(int stride) {
     this->mStride = stride;
+}
+
+int ConvolutionLayer::getUpscaleX() {
+    return this->mUpscaleX;
+}
+
+int ConvolutionLayer::getUpscaleY() {
+    return this->mUpscaleY;
+}
+
+const void* ConvolutionLayer::getAlpha() {
+    const void* a = &mAlpha;
+    return a;
+}
+
+void ConvolutionLayer::setAlpha(float alpha) {
+    this->mAlpha = alpha;
+}
+
+const void* ConvolutionLayer::getBeta() {
+    const void* b = &mBeta;
+    return b;
+}
+
+void ConvolutionLayer::setBeta(float beta) {
+    this->mBeta = beta;
 }
 
 void ConvolutionLayer::setParamAtIndex(int index, int lr_mult, int decay_mult) {

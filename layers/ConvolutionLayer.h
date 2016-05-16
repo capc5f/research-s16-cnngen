@@ -21,6 +21,10 @@ private:
     int mFilterSize;
     int mFilterDepth;
     int mStride;
+    int mUpscaleX;
+    int mUpscaleY;
+    float mAlpha;
+    float mBeta;
     WeightFiller mWeightFiller;
     BiasFiller mBiasFiller;
     bool mHasWeightFiller;
@@ -43,6 +47,12 @@ public:
     void setFilterDepth(int filter_depth);
     int getStride();
     void setStride(int stride);
+    int getUpscaleX();
+    int getUpscaleY();
+    const void* getAlpha();
+    void setAlpha(float alpha);
+    const void* getBeta();
+    void setBeta(float beta);
     void setParamAtIndex(int index, int lr_mult, int decay_mult);
     Param getParamAtIndex(int index);
     bool hasWeightFiller();

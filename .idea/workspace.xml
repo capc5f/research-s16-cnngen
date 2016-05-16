@@ -33,16 +33,6 @@
     <splitter split-orientation="horizontal" split-proportion="0.44884038">
       <split-first>
         <leaf>
-          <file leaf-file-name="InnerProductLayer.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/layers/InnerProductLayer.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="419">
-                  <caret line="70" column="17" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="InputLayer.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/layers/InputLayer.cpp">
               <provider selected="true" editor-type-id="text-editor">
@@ -113,21 +103,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UserInput.cpp" pinned="false" current-in-tab="true">
+          <file leaf-file-name="UserInput.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/utils/UserInput.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="688">
-                  <caret line="374" column="27" selection-start-line="374" selection-start-column="27" selection-end-line="374" selection-end-column="27" />
+                <state relative-caret-position="1303">
+                  <caret line="352" column="1" selection-start-line="352" selection-start-column="1" selection-end-line="352" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ConvolutionLayer.cpp" pinned="false" current-in-tab="false">
+          <file leaf-file-name="ConvolutionLayer.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/layers/ConvolutionLayer.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1966">
-                  <caret line="43" column="63" selection-start-line="43" selection-start-column="63" selection-end-line="43" selection-end-column="63" />
+                <state relative-caret-position="465">
+                  <caret line="198" column="23" selection-start-line="198" selection-start-column="23" selection-end-line="198" selection-end-column="23" />
                   <folding />
                 </state>
               </provider>
@@ -137,13 +127,25 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="UserInput.h" pinned="false" current-in-tab="true">
+          <file leaf-file-name="UserInput.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/utils/UserInput.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="222">
-                  <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+                  <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
                   <folding>
                     <element signature="e#145#163#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ConvolutionLayer.h" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/layers/ConvolutionLayer.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="360">
+                  <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+                  <folding>
+                    <element signature="e#159#178#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -199,16 +201,16 @@
         <option value="$PROJECT_DIR$/layers/LayerBase.h" />
         <option value="$PROJECT_DIR$/utils/GenerateLayers.cpp" />
         <option value="$PROJECT_DIR$/utils/UserInput.h" />
-        <option value="$PROJECT_DIR$/utils/UserInput.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/layers/ConvolutionLayer.h" />
-        <option value="$PROJECT_DIR$/layers/ConvolutionLayer.cpp" />
         <option value="$PROJECT_DIR$/layers/InnerProductLayer.cpp" />
         <option value="$PROJECT_DIR$/layers/InputLayer.cpp" />
         <option value="$PROJECT_DIR$/layers/LayerBase.cpp" />
         <option value="$PROJECT_DIR$/layers/LRNLayer.cpp" />
         <option value="$PROJECT_DIR$/layers/PoolingLayer.cpp" />
         <option value="$PROJECT_DIR$/layers/SoftmaxLayer.cpp" />
+        <option value="$PROJECT_DIR$/utils/UserInput.cpp" />
+        <option value="$PROJECT_DIR$/layers/ConvolutionLayer.h" />
+        <option value="$PROJECT_DIR$/layers/ConvolutionLayer.cpp" />
       </list>
     </option>
   </component>
@@ -538,7 +540,7 @@
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -834,16 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/UserInput.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-          <folding>
-            <element signature="e#145#163#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
@@ -851,24 +843,6 @@
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layers/ConvolutionLayer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
-          <folding>
-            <element signature="e#159#178#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layers/ConvolutionLayer.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1966">
-          <caret line="43" column="63" selection-start-line="43" selection-start-column="63" selection-end-line="43" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -936,10 +910,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils/UserInput.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding>
+            <element signature="e#145#163#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils/UserInput.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="374" column="27" selection-start-line="374" selection-start-column="27" selection-end-line="374" selection-end-column="27" />
+        <state relative-caret-position="1303">
+          <caret line="352" column="1" selection-start-line="352" selection-start-column="1" selection-end-line="352" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layers/ConvolutionLayer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+          <folding>
+            <element signature="e#159#178#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layers/ConvolutionLayer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="198" column="23" selection-start-line="198" selection-start-column="23" selection-end-line="198" selection-end-column="23" />
           <folding />
         </state>
       </provider>
