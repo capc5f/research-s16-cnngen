@@ -21,6 +21,7 @@ GenerateLayers::GenerateLayers(UserInput in) {
 }
 
 void GenerateLayers::init() {
+    srand( time(NULL) );
     mNumConvUsed = 0;
     mNumPoolUsed = 0;
     mNumReluUsed = 0;
@@ -53,10 +54,9 @@ void GenerateLayers::buildLayerList() {
              * always do at least 1 fully connected layer (linear classifier)
              * N >= 0, usually N <= 3, M >= 0, K >= 0 (and usually K < 3).
              */
-            std::random_device rd;
             int N, M, K = mNumFullyConnLayers - 1, j;
             if ( mNumConvLayers > 0 ) {
-                N = rd() % mNumConvLayers;
+                N = rand() % mNumConvLayers;
                 M = mNumConvLayers / N;
             } else {
                 M = N = 0;
