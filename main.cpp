@@ -16,6 +16,7 @@
 using namespace std;
 
 std::vector <LayerBase *> getAlexNetLayers();
+void displayPrototxtOutput(UserInput in, std::vector <LayerBase *> layers);
 
 int main(int argc, const char **argv) {
 
@@ -31,67 +32,7 @@ int main(int argc, const char **argv) {
 //    layers = getAlexNetLayers();
 
     if ( in.doGeneratePrototxt() ) {
-        string dir = "/Users/styles/Code/Research_S16/output_files/";
-        string filename = "test.prototxt";
-        string network_name = in.getNetworkName();
-/*
-        cout << "Generating prototxt named <" << filename << "> in directory <" << dir << ">" << endl;
-        Prototxt *prototxt = new Prototxt(dir + filename, network_name, layers);
-        prototxt->writeLayersToPrototxt();
-*/
-        cout << "\nSnapshot of the generated prototxt file:\n" << "name: \"" << network_name << "\"" << endl;
-        for (unsigned long i = 0; i < layers.size(); ++i) {
-            switch (layers.at(i)->getLayerType()) {
-                case INPUT: {
-                    InputLayer *il = (InputLayer *) layers.at(i);
-                    if (il != NULL) {
-                        cout << il->toString();
-                       // cout << "Input layer size: W = " << il->getWidth() << ", H = " << il->getHeight() << endl;
-                    }
-                    break;
-                }
-
-                case CONVOLUTION: {
-                    ConvolutionLayer *cl = (ConvolutionLayer *) layers.at(i);
-                    if (cl != NULL) {
-                        cout << cl->toString();
-                        cout << "Convolution layer size: W = " << cl->getOutputWidth() << ", H = " << cl->getOutputHeight() << endl;
-                    }
-                    break;
-                }
-
-                case POOLING: {
-                    PoolingLayer *pl = (PoolingLayer *) layers.at(i);
-                    if (pl != NULL) {
-                        cout << pl->toString();
-                        cout << "Pooling layer size: W = " << pl->getOutputWidth() << ", H = " << pl->getOutputHeight() << endl;
-                    }
-                    break;
-                }
-
-                case RELU: {
-                    ReLULayer *rl = (ReLULayer *) layers.at(i);
-                    if (rl != NULL) {
-                        cout << rl->toString();
-                        cout << "ReLU layer size: W = " << rl->getOutputWidth() << ", H = " << rl->getOutputHeight() << endl;
-                    }
-                    break;
-                }
-
-                case INNER_PRODUCT: {
-                    InnerProductLayer *ipl = (InnerProductLayer *) layers.at(i);
-                    if (ipl != NULL) {
-                        cout << ipl->toString();
-                        cout << "Fully connected layer size: W = " << ipl->getOutputWidth() << ", H = " << ipl->getOutputHeight() << endl;
-                    }
-                    break;
-                }
-
-                default: {
-                    break;
-                }
-            }
-        }
+        displayPrototxtOutput(in, layers);
     }
 
     layers.clear();
@@ -179,4 +120,71 @@ std::vector <LayerBase *> getAlexNetLayers() {
     layers.push_back(prob);
 
     return layers;
+}
+
+void displayPrototxtOutput(UserInput in, std::vector <LayerBase *> layers) {
+    if ( in == nullptr || layers.empty() )
+        return;
+
+    string dir = "/Users/styles/Code/Research_S16/output_files/";
+    string filename = in.getInputFilename();
+    string network_name = in.getNetworkName();
+/*
+        cout << "Generating prototxt named <" << filename << "> in directory <" << dir << ">" << endl;
+        Prototxt *prototxt = new Prototxt(dir + filename, network_name, layers);
+        prototxt->writeLayersToPrototxt();
+*/
+    cout << "\nSnapshot of the generated prototxt file:\n" << "name: \"" << network_name << "\"" << endl;
+    for (unsigned long i = 0; i < layers.size(); ++i) {
+        switch (layers.at(i)->getLayerType()) {
+            case INPUT: {
+                InputLayer *il = (InputLayer *) layers.at(i);
+                if (il != NULL) {
+                    cout << il->toString();
+                    // cout << "Input layer size: W = " << il->getWidth() << ", H = " << il->getHeight() << endl;
+                }
+                break;
+            }
+
+            case CONVOLUTION: {
+                ConvolutionLayer *cl = (ConvolutionLayer *) layers.at(i);
+                if (cl != NULL) {
+                    cout << cl->toString();
+                    cout << "Convolution layer size: W = " << cl->getOutputWidth() << ", H = " << cl->getOutputHeight() << endl;
+                }
+                break;
+            }
+
+            case POOLING: {
+                PoolingLayer *pl = (PoolingLayer *) layers.at(i);
+                if (pl != NULL) {
+                    cout << pl->toString();
+                    cout << "Pooling layer size: W = " << pl->getOutputWidth() << ", H = " << pl->getOutputHeight() << endl;
+                }
+                break;
+            }
+
+            case RELU: {
+                ReLULayer *rl = (ReLULayer *) layers.at(i);
+                if (rl != NULL) {
+                    cout << rl->toString();
+                    cout << "ReLU layer size: W = " << rl->getOutputWidth() << ", H = " << rl->getOutputHeight() << endl;
+                }
+                break;
+            }
+
+            case INNER_PRODUCT: {
+                InnerProductLayer *ipl = (InnerProductLayer *) layers.at(i);
+                if (ipl != NULL) {
+                    cout << ipl->toString();
+                    cout << "Fully connected layer size: W = " << ipl->getOutputWidth() << ", H = " << ipl->getOutputHeight() << endl;
+                }
+                break;
+            }
+
+            default: {
+                break;
+            }
+        }
+    }
 }
