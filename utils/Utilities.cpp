@@ -90,7 +90,7 @@ void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool d
     if ( layers.empty() )
         return;
 
-    string dir = "/Users/styles/Code/Research_S16/output_files/";
+    string dir = "/Users/styles/Code/Research_S16/output_files/"; // todo: FIXME
     string filename = in.getInputFilename();
     string network_name = in.getNetworkName();
     stringstream ss;
@@ -108,7 +108,7 @@ void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool d
                 if (il != NULL) {
                     cout << il->toString();
                     ss << i << ") layer: " << il->getName() << ", size: W = " << il->getOutputWidth() << ", H = " <<
-                    il->getOutputHeight() << endl;
+                    il->getOutputHeight() << ", D = " << il->getOutputDepth() << endl;
                 }
                 break;
             }
@@ -118,7 +118,7 @@ void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool d
                 if (cl != NULL) {
                     cout << cl->toString();
                     ss << i << ") layer: " << cl->getName() << ", size: W = " << cl->getOutputWidth() << ", H = " <<
-                    cl->getOutputHeight() << endl;
+                    cl->getOutputHeight() << ", D = " << cl->getOutputDepth() << endl;
                 }
                 break;
             }
@@ -128,7 +128,7 @@ void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool d
                 if (pl != NULL) {
                     cout << pl->toString();
                     ss << i << ") layer: " << pl->getName() << ", size: W = " << pl->getOutputWidth() << ", H = " <<
-                    pl->getOutputHeight() << endl;
+                    pl->getOutputHeight() << ", D = " << pl->getOutputDepth() << endl;
                 }
                 break;
             }
@@ -138,7 +138,7 @@ void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool d
                 if (rl != NULL) {
                     cout << rl->toString();
                     ss << i << ") layer: " << rl->getName() << ", size: W = " << rl->getOutputWidth() << ", H = " <<
-                    rl->getOutputHeight() << endl;
+                    rl->getOutputHeight() << ", D = " << rl->getOutputDepth() << endl;
                 }
                 break;
             }
@@ -148,7 +148,7 @@ void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool d
                 if (ipl != NULL) {
                     cout << ipl->toString();
                     ss << i << ") layer: " << ipl->getName() << ", size: W = " << ipl->getOutputWidth() << ", H = " <<
-                    ipl->getOutputHeight() << endl;
+                    ipl->getOutputHeight() << ", D = " << ipl->getOutputDepth() << endl;
                 }
                 break;
             }
