@@ -19,7 +19,7 @@ GenerateLayers::GenerateLayers(UserInput in) {
     this->mThreshold = in.getThreshold() / 100.0;
 
     buildLayerList();
-//    setTopAndBottom();
+    setTopAndBottom();
 }
 
 void GenerateLayers::init() {
