@@ -55,6 +55,15 @@ void GenerateLayers::buildLayerList() {
 
         case THRESHOLD: {
 
+            /**
+             * Follow pattern:
+             * Input -> {[CONV -> RELU -> POOL] * K } -> {[CONV -> RELU] * M } -> { [FC -> RELU] * N } -> FC
+             *  - K: variable, determined based on the requested minimization ratio percentage
+             *  - M: variable, leftover convolutions are chained, followed by relu
+             *  - N: number of fully connected layers requested - 1
+             *  always do at least 1 fully connected layer
+             */
+
             double ratio = size / (double) mInputHeight;
 
             while ( ratio >= mThreshold ) {
