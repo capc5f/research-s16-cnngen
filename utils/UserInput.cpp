@@ -10,8 +10,9 @@ UserInput::UserInput(bool withInputFile) {
     init();
 
 #ifdef DEBUG
-
+    cout << "Debug mode.. \nAutomatically filling out user input.." << endl;
     debug();
+    toString();
 
 #else
 
@@ -39,6 +40,7 @@ UserInput::~UserInput() {
 }
 
 void UserInput::init() {
+    mHasThreshold = false;
     mHasInputFilename = false;
     mIsValidInput = true;
     mHasNetworkName = false;
@@ -59,6 +61,7 @@ void UserInput::debug() {
     mNetworkMode = AUTOMATIC;
     mGeneratePrototxt = true;
     mIsValidInput = true;
+    mHasThreshold = false;
 }
 
 bool UserInput::isValidInput() {
@@ -383,6 +386,7 @@ void UserInput::setNetworkMode(NetworkMode network_mode) {
 }
 
 void UserInput::setThresholdPercent(int threshold_percent) {
+    this->mHasThreshold = true;
     this->mThresholdPercent = threshold_percent;
 }
 
@@ -429,6 +433,10 @@ int UserInput::getThreshold() {
     return this->mThresholdPercent;
 }
 
+bool UserInput::hasThreshold() {
+    return this->mHasThreshold;
+}
+
 std::string UserInput::getNetworkName() {
     if ( mHasNetworkName )
         return this->mNetworkName;
@@ -438,6 +446,15 @@ std::string UserInput::getNetworkName() {
 
 int UserInput::getNumberInput() {
     return this->mNumberInput;
+}
+
+std::string UserInput::toString() {
+    std::stringstream ss;
+
+    ss << "Input size: " << mInputWidth << endl;
+    ss << "" << std::endl;
+
+    return ss.str();
 }
 
 bool isProperNumberInput(int num_input) {

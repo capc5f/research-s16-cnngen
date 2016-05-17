@@ -44,7 +44,7 @@ private:
     ConvolutionLayer* buildConvolutionLayer(int in_size, int f_size, int depth);
     ConvolutionLayer* buildConvolutionLayer(int in_width, int in_height, int f_size, int depth);
     PoolingLayer* buildPoolingLayer(int in_size, int filter_size, PoolingType type, int stride);
-    PoolingLayer* buildPoolingLayerMax2by2(int in_size);
+    PoolingLayer* buildPoolingLayerMax2by2(int in_size, int depth);
     ReLULayer* buildReLULayer(int in_size);
     ReLULayer* buildReLULayer(int width, int height, int depth);
     InnerProductLayer* buildInnerProductLayer(int in_size, int out_size);

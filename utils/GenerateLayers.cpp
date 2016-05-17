@@ -16,7 +16,8 @@ GenerateLayers::GenerateLayers(UserInput in) {
     this->mNumInputChannels = in.getNumInputChannels();
     this->mNumberInput = in.getNumberInput();
     this->mNetworkMode = in.getNetworkMode();
-    this->mThreshold = in.getThreshold() / 100.0;
+    if ( in.hasThreshold() )
+        this->mThreshold = in.getThreshold() / 100.0;
 
     buildLayerList();
     setTopAndBottom();
@@ -24,6 +25,7 @@ GenerateLayers::GenerateLayers(UserInput in) {
 }
 
 void GenerateLayers::init() {
+    mThreshold = 100.0;
     mTotalLayers = 0;
     mNumConvUsed = 0;
     mNumPoolUsed = 0;
@@ -75,7 +77,7 @@ void GenerateLayers::buildLayerList() {
                     layers.push_back(r);
                 }
 
-                PoolingLayer *p = buildPoolingLayerMax2by2(layers.back()->getOutputWidth());
+                PoolingLayer *p = buildPoolingLayerMax2by2(layers.back()->getOutputWidth(), layers.back()->getOutputDepth());
                 layers.push_back(p);
                 size = p->getOutputWidth();
             }
@@ -116,7 +118,7 @@ void GenerateLayers::buildLayerList() {
                     layers.push_back(c);
                     layers.push_back(r);
                 }
-                PoolingLayer *p = buildPoolingLayerMax2by2(size);
+                PoolingLayer *p = buildPoolingLayerMax2by2(size, layers.back()->getOutputDepth());
                 layers.push_back(p);
                 size = p->getOutputWidth();
                 ratio = size / (float) mInputHeight;
@@ -247,7 +249,7 @@ PoolingLayer* GenerateLayers::buildPoolingLayer(int in_size, int filter_size, Po
 * Pooling equations:
 *  W2 = [ (W1 - F) / S ] + 1
 */
-PoolingLayer* GenerateLayers::buildPoolingLayerMax2by2(int in_size) {
+PoolingLayer* GenerateLayers::buildPoolingLayerMax2by2(int in_size, int depth) {
     int filter_size = 2, stride = 2;
     std::stringstream ss;
     ss << "pool" << ++mNumPoolUsed;
@@ -255,12 +257,12 @@ PoolingLayer* GenerateLayers::buildPoolingLayerMax2by2(int in_size) {
     PoolingLayer *poolingLayer = new PoolingLayer(ss.str(), MAX, filter_size, stride);
     int W2 = ( (in_size - filter_size ) / stride ) + 1;
 
-    poolingLayer->setInputHeight(W2);
-    poolingLayer->setInputWidth(W2);
+    poolingLayer->setInputHeight(in_size);
+    poolingLayer->setInputWidth(in_size);
     poolingLayer->setOutputHeight(W2);
     poolingLayer->setOutputWidth(W2);
-    poolingLayer->setInputDepth(mNumInputChannels);
-    poolingLayer->setOutputDepth(mNumInputChannels);
+    poolingLayer->setInputDepth(depth);
+    poolingLayer->setOutputDepth(depth);
 
     return poolingLayer;
 }

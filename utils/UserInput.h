@@ -35,6 +35,7 @@ private:
     bool mGeneratePrototxt;
     bool mIsValidInput;
     int mThresholdPercent;
+    bool mHasThreshold;
 
     void init();
     void debug();
@@ -69,7 +70,9 @@ public:
     int getOutputDim();
     NetworkMode getNetworkMode();
     int getThreshold();
+    bool hasThreshold();
     std::string getNetworkName();
+    std::string toString();
 };
 
 static bool isProperNumberInput(int num_input);
