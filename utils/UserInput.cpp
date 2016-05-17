@@ -52,6 +52,9 @@ void UserInput::init() {
 }
 
 void UserInput::debug() {
+    int batch_size = 128;
+    int num_batches = 4;
+
     mInputWidth = 32;
     mInputHeight = 32;
     mNumInputChannels = 3;
@@ -60,13 +63,14 @@ void UserInput::debug() {
     mConvFilterSize = 3;
     mNumFullyConnLayers = 3;
     mOutputDim = 10;
-    setBatchSize(128);
+    setBatchSize(batch_size);
     mNetworkMode = AUTOMATIC;
     mGeneratePrototxt = true;
     mIsValidInput = true;
     mHasThreshold = false;
     mHasInputFilename = true;
     mInputFilename = "../ece8270project/test_batch.bin";
+    mNumberInput = batch_size * num_batches;
 }
 
 bool UserInput::isValidInput() {
