@@ -63,7 +63,7 @@ void UserInput::debug() {
     mConvFilterSize = 3;
     mNumFullyConnLayers = 3;
     mOutputDim = 10;
-    setBatchSize(128);
+    setBatchSize(batch_size);
     mNetworkMode = AUTOMATIC;
     mGeneratePrototxt = true;
     mIsValidInput = true;
