@@ -13,7 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="042a7085-13ef-4c4f-a1ac-00d99bb3b05d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/GenerateLayers.cpp" afterPath="$PROJECT_DIR$/utils/GenerateLayers.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/UserInput.cpp" afterPath="$PROJECT_DIR$/utils/UserInput.cpp" />
     </list>
     <ignored path="Research_S16.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserInput.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserInput.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utils/UserInput.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="188">
+              <caret line="107" column="43" selection-start-line="107" selection-start-column="43" selection-end-line="107" selection-end-column="43" />
               <folding>
                 <element signature="e#181#282#0" expanded="true" />
               </folding>
@@ -56,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenerateLayers.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GenerateLayers.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/GenerateLayers.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="68" column="39" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
+            <state relative-caret-position="1140">
+              <caret line="76" column="39" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
               <folding>
                 <element signature="e#2781#3178#0" expanded="false" />
                 <element signature="e#4965#5362#0" expanded="false" />
@@ -185,8 +185,8 @@
         <option value="$PROJECT_DIR$/ece8270project/ImageBatch.cpp" />
         <option value="$PROJECT_DIR$/utils/Utilities.h" />
         <option value="$PROJECT_DIR$/utils/Utilities.cpp" />
-        <option value="$PROJECT_DIR$/utils/UserInput.cpp" />
         <option value="$PROJECT_DIR$/utils/GenerateLayers.cpp" />
+        <option value="$PROJECT_DIR$/utils/UserInput.cpp" />
       </list>
     </option>
   </component>
@@ -751,7 +751,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463467948080</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="bedugging..">
+      <created>1463477352473</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1463477352473</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1199,7 +1206,7 @@
         <state relative-caret-position="450">
           <caret line="30" column="2" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
           <folding>
-            <element signature="e#146#164#0" expanded="true" />
+            <element signature="e#146#164#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1212,23 +1219,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/UserInput.cpp">
+    <entry file="file://$PROJECT_DIR$/utils/GenerateLayers.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="1140">
+          <caret line="76" column="39" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
           <folding>
-            <element signature="e#181#282#0" expanded="true" />
+            <element signature="e#2781#3178#0" expanded="false" />
+            <element signature="e#4965#5362#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/GenerateLayers.cpp">
+    <entry file="file://$PROJECT_DIR$/utils/UserInput.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="68" column="39" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
+        <state relative-caret-position="188">
+          <caret line="107" column="43" selection-start-line="107" selection-start-column="43" selection-end-line="107" selection-end-column="43" />
           <folding>
-            <element signature="e#2781#3178#0" expanded="false" />
-            <element signature="e#4965#5362#0" expanded="false" />
+            <element signature="e#181#282#0" expanded="true" />
           </folding>
         </state>
       </provider>

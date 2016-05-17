@@ -49,6 +49,7 @@ void UserInput::init() {
     mHasNetworkName = false;
     mNetworkName = "generated_cnn";
     mNumberInput = 1;
+    mInputFilename = "../ece8270project/test_batch.bin";
 }
 
 void UserInput::debug() {
@@ -104,6 +105,7 @@ bool UserInput::getInputDimensions(bool withInputFile) {
     if ( withInputFile ) {
         cout << "Please enter the input filename: ";
         cin >> filename;
+        filename = mInputFilename; // debug
         ifstream myfile(filename);
 
         if (myfile.is_open()) {
