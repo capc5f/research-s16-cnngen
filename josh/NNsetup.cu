@@ -370,7 +370,11 @@ int main(){
 
 	cudnnErrorCheck(cudnnCreate(&cudnnHandle));
 	int i;
+#ifdef DEBUG
 	UserInput in(false);
+#else
+	UserInput in(true);
+#endif
 	if ( !in.isValidInput() ) {
 		std::cout << "Exiting program.." << std::endl;
 		return EXIT_FAILURE;
@@ -419,8 +423,9 @@ int main(){
 		puts("After layerArray, before ImageBatch vec init");
 	//std::vector <ImageBatch *> batchList = buildBatchList(in,BATCH_SIZE);
 		puts("After batc vec init");
-	int x = 0,y=0;
-	for(y=0;y<10;y++){
+	int x = 0;
+//	y=0;
+//	for(y=0;y<10;y++){
 	std::vector <ImageBatch *> batchList = buildBatchList(in, BATCH_SIZE);
 	
 	for(x=0;x<batchList.size();x++){		
@@ -466,7 +471,7 @@ int main(){
 	}
 	
 		destroyBatchList(batchList);
-	}
+//	}
 	//destroyBatchList(batchList);
 	layers.clear();
 	
