@@ -216,9 +216,13 @@ std::vector<ImageBatch *> buildBatchList(UserInput in, int batch_size) {
     int rem_batch = in.getNumberInput() % batch_size; // todo: FIXME: FUTUREWORK -- the remainder is ignored
     int image_size = in.getInputWidth() * in.getInputHeight() * in.getNumInputChannels();
 
+    cout << "num_batches: " << num_batches << ", rem_batch: " << rem_batch << ", image_size: " << image_size << endl;
+
     for ( int i = 0; i < num_batches; ++i ) {
         uint8_t* data = getImageAtOffset(in, batch_size, i);
+        cout << "Got image data #" << i << endl;
         ImageBatch *ib = new ImageBatch(image_size, data);
+        cout << "Made ImageBatch obj #" << ib->getBatchId();
         batchList.push_back(ib);
     }
 
