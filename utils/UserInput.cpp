@@ -67,6 +67,7 @@ void UserInput::debug() {
     mHasThreshold = false;
     mHasInputFilename = true;
     mInputFilename = "../ece8270project/test_batch.bin";
+    mNumberInput = 512;
 }
 
 bool UserInput::isValidInput() {
