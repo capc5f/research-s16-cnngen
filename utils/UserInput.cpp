@@ -451,7 +451,12 @@ int UserInput::getNumberInput() {
 std::string UserInput::toString() {
     std::stringstream ss;
 
-    ss << "Input size: " << mInputWidth << endl;
+    ss << "Input size [w, h, c]: [" << mInputWidth << ", " << mInputHeight << ", " << mNumInputChannels << "]\n";
+    ss << "Batch size: " << LayerBase::getBatchSize() << "\n";
+    ss << "Number of Convolution layers: " << mNumConvLayers << " each with field of view: " << mConvFilterSize << "\n";
+    ss << "Number of Fully Connected layers: " << mNumFullyConnLayers << "\n";
+    ss << "Generator mode: Automatic\nNetwork name: ";
+    ss << mNetworkName << "\n";
     ss << "" << std::endl;
 
     return ss.str();

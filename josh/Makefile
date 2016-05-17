@@ -13,7 +13,7 @@ all:	main
 clean:
 	rm nn_setup
 
-debug: LayerBase ConvolutionLayer InnerProductLayer InputLayer PoolingLayer ReLULayer Param Utilities UserInput GenerateLayers LRNLayer SoftmaxLayer
+debug: LayerBase ConvolutionLayer InnerProductLayer InputLayer PoolingLayer ReLULayer Param Utilities UserInputDebug GenerateLayers LRNLayer SoftmaxLayer
 	$(NVCC) $(LINK) $(C_FLAGS) $(DEBUG) -o nn_setup NNsetup.cu LayerBase.o ConvolutionLayer.o InnerProductLayer.o InputLayer.o PoolingLayer.o ReLULayer.o Param.o Utilities.o UserInput.o GenerateLayers.o LRNLayer.o SoftmaxLayer.o
 
 main: LayerBase ConvolutionLayer InnerProductLayer InputLayer PoolingLayer ReLULayer Param Utilities UserInput GenerateLayers LRNLayer SoftmaxLayer
@@ -42,6 +42,9 @@ Param:
 
 Utilities:
 	$(CC) $(C_FLAGS) -c $(UTILS)Utilities.cpp
+
+UserInputDebug:
+	$(CC) $(C_FLAGS) $(DEBUG) -c $(UTILS)UserInput.cpp
 
 UserInput:
 	$(CC) $(C_FLAGS) -c $(UTILS)UserInput.cpp

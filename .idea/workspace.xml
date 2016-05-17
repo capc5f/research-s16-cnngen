@@ -13,10 +13,8 @@
   <component name="ChangeListManager">
     <list default="true" id="042a7085-13ef-4c4f-a1ac-00d99bb3b05d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/GenerateLayers.cpp" afterPath="$PROJECT_DIR$/utils/GenerateLayers.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/GenerateLayers.h" afterPath="$PROJECT_DIR$/utils/GenerateLayers.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/UserInput.cpp" afterPath="$PROJECT_DIR$/utils/UserInput.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/UserInput.h" afterPath="$PROJECT_DIR$/utils/UserInput.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/Utilities.cpp" afterPath="$PROJECT_DIR$/utils/Utilities.cpp" />
     </list>
     <ignored path="Research_S16.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,11 +40,9 @@
           <file leaf-file-name="UserInput.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/utils/UserInput.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="453" column="48" selection-start-line="453" selection-start-column="48" selection-end-line="453" selection-end-column="48" />
-                  <folding>
-                    <element signature="e#180#281#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="195">
+                  <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -117,8 +113,8 @@
           <file leaf-file-name="Utilities.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/utils/Utilities.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1590">
-                  <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
+                <state relative-caret-position="255">
+                  <caret line="132" column="22" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -128,10 +124,10 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="UserInput.h" pinned="false" current-in-tab="false">
+          <file leaf-file-name="UserInput.h" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/utils/UserInput.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="327">
+                <state relative-caret-position="975">
                   <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
                   <folding>
                     <element signature="e#145#163#0" expanded="true" />
@@ -152,7 +148,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GenerateLayers.h" pinned="false" current-in-tab="true">
+          <file leaf-file-name="GenerateLayers.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/utils/GenerateLayers.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="222">
@@ -291,10 +287,10 @@
         <option value="$PROJECT_DIR$/layers/PoolingLayer.h" />
         <option value="$PROJECT_DIR$/layers/InnerProductLayer.h" />
         <option value="$PROJECT_DIR$/layers/InnerProductLayer.cpp" />
-        <option value="$PROJECT_DIR$/utils/Utilities.cpp" />
         <option value="$PROJECT_DIR$/utils/UserInput.h" />
         <option value="$PROJECT_DIR$/utils/GenerateLayers.h" />
         <option value="$PROJECT_DIR$/utils/GenerateLayers.cpp" />
+        <option value="$PROJECT_DIR$/utils/Utilities.cpp" />
         <option value="$PROJECT_DIR$/utils/UserInput.cpp" />
       </list>
     </option>
@@ -740,7 +736,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463450042977</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix GenerateLayers::buildPoolingMax2x2 input dims">
+      <created>1463450825606</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1463450825606</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -793,7 +796,8 @@
     <MESSAGE value="testing changes to generated list.." />
     <MESSAGE value="initialize mNetworkName" />
     <MESSAGE value="change displayPrototxt format" />
-    <option name="LAST_COMMIT_MESSAGE" value="change displayPrototxt format" />
+    <MESSAGE value="fix GenerateLayers::buildPoolingMax2x2 input dims" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix GenerateLayers::buildPoolingMax2x2 input dims" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1158,24 +1162,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/Utilities.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
-          <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/UserInput.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
-          <folding>
-            <element signature="e#145#163#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/GenerateLayers.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
@@ -1197,13 +1183,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils/UserInput.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
+          <folding>
+            <element signature="e#145#163#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/Utilities.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="132" column="22" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils/UserInput.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="453" column="48" selection-start-line="453" selection-start-column="48" selection-end-line="453" selection-end-column="48" />
-          <folding>
-            <element signature="e#180#281#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="195">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
