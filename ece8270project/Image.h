@@ -10,22 +10,37 @@
 #include <sstream>
 #include <vector>
 
+enum ImageType {
+    CIFAR10, UNSUPPORTED
+};
+
 class Image {
 private:
+    int mClassification;
     int mNumChannels;
     int mWidth;
     int mHeight;
-    std::vector<uint8_t> *mData;
+    ImageType mImageType;
+    uint8_t *mData;
+    int mSize;
+
+    void init();
+    void setClassification(int classification);
+    void setNumChannels(int num_channels);
+    void setHeight(int height);
+    void setWidth(int width);
+    void setImageType(ImageType image_type);
 
 public:
     Image(int num_channels, int width, int height);
+    Image(int num_channels, int width, int height, int classification);
     ~Image();
+    std::string getClassification();
     int getNumChannels();
-    void setNumChannels(int num_channels);
     int getWidth();
-    void setWidth(int width);
     int getHeight();
-    void setHeight(int height);
+    std::string getImageType();
+    uint8_t* getData();
     std::string toString();
 };
 

@@ -162,3 +162,74 @@ void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool d
     if (displayLayerSizes)
         cout << ss.str();
 }
+
+list<Image *> buildImageList(UserInput in) {
+    string file = in.getInputFilename();
+    list<Image *> imageList;
+
+    char byte;
+    int i, j;
+    // Read bytes from a file using an input file stream
+    ifstream reader(file);
+
+    if ( !reader ) {
+        cout << "Error opening file" << endl;
+    } else {
+        // Read each character from the stream until end of file
+        for ( int i = 0; !reader.eof(); i++){
+
+            // Get the next byte and output it
+            reader.get(byte);
+
+        }
+
+        cout << endl;
+        reader.close();
+    }
+
+    return imageList;
+}
+
+uint8_t* buildImageArray(UserInput in, int batch_size, int batch_num) {
+    string file = in.getInputFilename();
+    const int image_size = in.getInputWidth() * in.getInputHeight() * in.getNumInputChannels();
+    const int size = batch_size * image_size;
+    char *imageArray = NULL;
+
+    char byte;
+    int i, j;
+    ifstream reader(file, std::ifstream::binary);
+
+    if ( !reader ) {
+        cout << "Error opening input file <" << file << ">" << endl;
+    } else {
+        imageArray = new char[size];
+        // Start at batch_num * batch_size location in the input file to get the correct batch of pixels
+
+        // Read each byte from the stream until end of file
+        for ( i = 0; i < batch_size; ++i ) {
+            reader.read(imageArray + i*image_size + 1, size);
+        }
+
+        for ( int i = 0; !reader.eof(); i++) {
+
+            // Get the next byte and output it
+            reader.get(byte);
+        }
+
+        reader.close();
+    }
+
+    return (uint8_t *) imageArray;
+}
+
+std::list<ImageBatch *> buildBatchList(UserInput in, int batch_size) {
+    list<ImageBatch *> batchList;
+    int num_batches = in.getNumberInput() / batch_size;
+
+    return batchList;
+}
+
+void destroyBatchList(std::list<ImageBatch *> batch_list) {
+    batch_list.clear();
+}

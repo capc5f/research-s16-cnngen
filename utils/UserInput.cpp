@@ -10,6 +10,7 @@ UserInput::UserInput(bool withInputFile) {
     init();
 
 #ifdef DEBUG
+
     cout << "Debug mode.. \nAutomatically filling out user input.." << endl;
     debug();
     toString();
@@ -32,7 +33,9 @@ UserInput::UserInput(bool withInputFile) {
         cin >> mNetworkName;
         mHasNetworkName = true;
     }
+
 #endif
+
 }
 
 UserInput::~UserInput() {
