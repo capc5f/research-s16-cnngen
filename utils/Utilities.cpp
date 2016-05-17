@@ -190,33 +190,20 @@ vector<Image *> buildImageList(UserInput in) {
     return imageList;
 }
 
-uint8_t* buildImageArray(UserInput in, int batch_size, int batch_num) {
+uint8_t* getImageAtOffset(UserInput in, int batch_size, int batch_num) {
     string file = in.getInputFilename();
     const int image_size = in.getInputWidth() * in.getInputHeight() * in.getNumInputChannels();
     const int size = batch_size * image_size;
     char *imageArray = NULL;
 
-    char byte;
-    int i, j;
     ifstream reader(file, std::ifstream::binary);
 
     if ( !reader ) {
-        cout << "Error opening input file <" << file << ">" << endl;
+        cerr << "Error opening input file <" << file << ">" << endl;
+        cerr.flush();
     } else {
         imageArray = new char[size];
-        // Start at batch_num * batch_size location in the input file to get the correct batch of pixels
-
-        // Read each byte from the stream until end of file
-        for ( i = 0; i < batch_size; ++i ) {
-            reader.read(imageArray + i*image_size + 1, size);
-        }
-
-        for ( int i = 0; !reader.eof(); i++) {
-
-            // Get the next byte and output it
-            reader.get(byte);
-        }
-
+        reader.read(imageArray + batch_num*image_size + 1, size);
         reader.close();
     }
 
@@ -226,6 +213,14 @@ uint8_t* buildImageArray(UserInput in, int batch_size, int batch_num) {
 std::vector<ImageBatch *> buildBatchList(UserInput in, int batch_size) {
     vector<ImageBatch *> batchList;
     int num_batches = in.getNumberInput() / batch_size;
+    int rem_batch = in.getNumberInput() % batch_size; // todo: FIXME: FUTUREWORK -- the remainder is ignored
+    int image_size = in.getInputWidth() * in.getInputHeight() * in.getNumInputChannels();
+
+    for ( int i = 0; i < num_batches; ++i ) {
+        uint8_t* data = getImageAtOffset(in, batch_size, i);
+        ImageBatch *ib = new ImageBatch(image_size, data);
+        batchList.push_back(ib);
+    }
 
     return batchList;
 }

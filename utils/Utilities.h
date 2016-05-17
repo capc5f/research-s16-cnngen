@@ -23,7 +23,7 @@
 std::vector <LayerBase *> getAlexNetLayers();
 void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool displayLayerSizes);
 std::vector<Image *> buildImageList(UserInput in);
-uint8_t* buildImageArray(UserInput in, int batch_size, int batch_num);
+uint8_t* getImageAtOffset(UserInput in, int batch_size, int batch_num);
 std::vector<ImageBatch *> buildBatchList(UserInput in, int batch_size);
 void destroyBatchList(std::vector<ImageBatch *> batch_list);
 
