@@ -14,11 +14,11 @@ all:	main
 clean:
 	rm nn_setup
 
-debug: LayerBase ConvolutionLayer InnerProductLayer InputLayer PoolingLayer ReLULayer Param Utilities UserInputDebug GenerateLayers LRNLayer SoftmaxLayer Image
-	$(NVCC) $(LINK) $(C_FLAGS) $(DEBUG) -o nn_setup NNsetup.cu LayerBase.o ConvolutionLayer.o InnerProductLayer.o InputLayer.o PoolingLayer.o ReLULayer.o Param.o Utilities.o UserInput.o GenerateLayers.o LRNLayer.o SoftmaxLayer.o Image.o
+debug: LayerBase ConvolutionLayer InnerProductLayer InputLayer PoolingLayer ReLULayer Param Utilities UserInputDebug GenerateLayers LRNLayer SoftmaxLayer Image ImageBatch
+	$(NVCC) $(LINK) $(C_FLAGS) $(DEBUG) -o nn_setup NNsetup.cu LayerBase.o ConvolutionLayer.o InnerProductLayer.o InputLayer.o PoolingLayer.o ReLULayer.o Param.o Utilities.o UserInput.o GenerateLayers.o LRNLayer.o SoftmaxLayer.o Image.o ImageBatch.o
 
-main: LayerBase ConvolutionLayer InnerProductLayer InputLayer PoolingLayer ReLULayer Param Utilities UserInput GenerateLayers LRNLayer SoftmaxLayer Image
-	$(NVCC) $(LINK) $(C_FLAGS) -o nn_setup NNsetup.cu LayerBase.o ConvolutionLayer.o InnerProductLayer.o InputLayer.o PoolingLayer.o ReLULayer.o Param.o Utilities.o UserInput.o GenerateLayers.o LRNLayer.o SoftmaxLayer.o Image.o
+main: LayerBase ConvolutionLayer InnerProductLayer InputLayer PoolingLayer ReLULayer Param Utilities UserInput GenerateLayers LRNLayer SoftmaxLayer Image ImageBatch
+	$(NVCC) $(LINK) $(C_FLAGS) -o nn_setup NNsetup.cu LayerBase.o ConvolutionLayer.o InnerProductLayer.o InputLayer.o PoolingLayer.o ReLULayer.o Param.o Utilities.o UserInput.o GenerateLayers.o LRNLayer.o SoftmaxLayer.o Image.o ImageBatch.o
 
 LayerBase:
 	$(CC) $(C_FLAGS) -c $(LAYER_DIR)LayerBase.cpp
@@ -61,3 +61,6 @@ SoftmaxLayer:
 
 Image:
 	$(CC) $(C_FLAGS) -c $(ECE_PROJ_DIR)Image.cpp
+
+ImageBatch:
+	$(CC) $(C_FLAGS) -c $(ECE_PROJ_DIR)ImageBatch.cpp

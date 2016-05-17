@@ -12,17 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="042a7085-13ef-4c4f-a1ac-00d99bb3b05d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ece8270project/ImageBatch.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ece8270project/ImageBatch.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Research_S16.iml" afterPath="$PROJECT_DIR$/.idea/Research_S16.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ece8270project/Image.cpp" afterPath="$PROJECT_DIR$/ece8270project/Image.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ece8270project/Image.h" afterPath="$PROJECT_DIR$/ece8270project/Image.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/josh/Makefile" afterPath="$PROJECT_DIR$/josh/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/UserInput.cpp" afterPath="$PROJECT_DIR$/utils/UserInput.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/Utilities.cpp" afterPath="$PROJECT_DIR$/utils/Utilities.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/Utilities.h" afterPath="$PROJECT_DIR$/utils/Utilities.h" />
     </list>
     <ignored path="Research_S16.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -678,7 +669,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463450825606</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="add ImageBatches.. prepare to read input, include cifar-10 data">
+      <created>1463459954974</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1463459954974</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -732,7 +730,8 @@
     <MESSAGE value="initialize mNetworkName" />
     <MESSAGE value="change displayPrototxt format" />
     <MESSAGE value="fix GenerateLayers::buildPoolingMax2x2 input dims" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix GenerateLayers::buildPoolingMax2x2 input dims" />
+    <MESSAGE value="add ImageBatches.. prepare to read input, include cifar-10 data" />
+    <option name="LAST_COMMIT_MESSAGE" value="add ImageBatches.. prepare to read input, include cifar-10 data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
