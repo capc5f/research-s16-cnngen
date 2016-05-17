@@ -196,8 +196,6 @@ uint8_t* getImageAtOffset(UserInput in, int batch_size, int batch_num) {
     const int size = batch_size * image_size;
     char *imageArray = NULL;
 
-    cout << "getImageAtOffset() for batch_num: " << batch_num << endl;
-
     ifstream reader(file, std::ifstream::binary);
 
     if ( !reader ) {
@@ -211,8 +209,6 @@ uint8_t* getImageAtOffset(UserInput in, int batch_size, int batch_num) {
             pos += (batch_num*image_size + 1);
             reader.seekg(pos, ios_base::beg);
             reader.read(imageArray, size);
-            float d = imageArray[0];
-            cout << "imageArray[0] = " << d << endl;
         } catch (const std::exception &ia) {
             cerr << "Invalid argument: " << ia.what() << endl;
             cerr.flush();
@@ -230,13 +226,9 @@ std::vector<ImageBatch *> buildBatchList(UserInput in, int batch_size) {
     int rem_batch = in.getNumberInput() % batch_size; // todo: FIXME: FUTUREWORK -- the remainder is ignored
     int image_size = in.getInputWidth() * in.getInputHeight() * in.getNumInputChannels();
 
-    cout << "num_batches: " << num_batches << ", rem_batch: " << rem_batch << ", image_size: " << image_size << endl;
-
     for ( int i = 0; i < num_batches; ++i ) {
         uint8_t* data = getImageAtOffset(in, batch_size, i);
-        cout << "Got image data #" << i << endl;
         ImageBatch *ib = new ImageBatch(image_size, data);
-        cout << "Made ImageBatch obj #" << ib->getBatchId() << endl;
         batchList.push_back(ib);
     }
 
