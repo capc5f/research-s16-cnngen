@@ -6,7 +6,7 @@
 #define RESEARCHDNNGENERATOR_UTILITIES_H
 
 #include <fstream>
-#include <list>
+#include <vector>
 
 #include "../layers/LayerBase.h"
 #include "../layers/InputLayer.h"
@@ -22,9 +22,9 @@
 
 std::vector <LayerBase *> getAlexNetLayers();
 void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool displayLayerSizes);
-std::list<Image *> buildImageList(UserInput in);
+std::vector<Image *> buildImageList(UserInput in);
 uint8_t* buildImageArray(UserInput in, int batch_size, int batch_num);
-std::list<ImageBatch *> buildBatchList(UserInput in, int batch_size);
-void destroyBatchList(std::list<ImageBatch *> batch_list);
+std::vector<ImageBatch *> buildBatchList(UserInput in, int batch_size);
+void destroyBatchList(std::vector<ImageBatch *> batch_list);
 
 #endif //RESEARCHDNNGENERATOR_UTILITIES_H

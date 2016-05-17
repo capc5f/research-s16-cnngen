@@ -163,9 +163,9 @@ void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool d
         cout << ss.str();
 }
 
-list<Image *> buildImageList(UserInput in) {
+vector<Image *> buildImageList(UserInput in) {
     string file = in.getInputFilename();
-    list<Image *> imageList;
+    vector<Image *> imageList;
 
     char byte;
     int i, j;
@@ -223,13 +223,13 @@ uint8_t* buildImageArray(UserInput in, int batch_size, int batch_num) {
     return (uint8_t *) imageArray;
 }
 
-std::list<ImageBatch *> buildBatchList(UserInput in, int batch_size) {
-    list<ImageBatch *> batchList;
+std::vector<ImageBatch *> buildBatchList(UserInput in, int batch_size) {
+    vector<ImageBatch *> batchList;
     int num_batches = in.getNumberInput() / batch_size;
 
     return batchList;
 }
 
-void destroyBatchList(std::list<ImageBatch *> batch_list) {
+void destroyBatchList(std::vector<ImageBatch *> batch_list) {
     batch_list.clear();
 }
