@@ -65,6 +65,8 @@ void UserInput::debug() {
     mGeneratePrototxt = true;
     mIsValidInput = true;
     mHasThreshold = false;
+    mHasInputFilename = true;
+    mInputFilename = "../ece8270project/test_batch.bin";
 }
 
 bool UserInput::isValidInput() {
