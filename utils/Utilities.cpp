@@ -206,8 +206,13 @@ uint8_t* getImageAtOffset(UserInput in, int batch_size, int batch_num) {
     } else {
         try {
             imageArray = new char[size];
-            reader.read(imageArray + batch_num * image_size + 1, size);
-            cout << "imageArray[0] = " << imageArray[0] << endl;
+            streampos pos;
+            pos = reader.tellg();
+            pos += (batch_num*image_size + 1);
+            reader.seekg(pos, ios_base::beg);
+            reader.read(imageArray, size);
+            float d = imageArray[0];
+            cout << "imageArray[0] = " << d << endl;
         } catch (const std::exception &ia) {
             cerr << "Invalid argument: " << ia.what() << endl;
             cerr.flush();
