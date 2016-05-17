@@ -107,8 +107,8 @@ void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool d
                 InputLayer *il = (InputLayer *) layers.at(i);
                 if (il != NULL) {
                     cout << il->toString();
-                    ss << i << ") layer: " << il->getName() << ", size: W = " << il->getOutputWidth() << ", H = " <<
-                    il->getOutputHeight() << ", D = " << il->getOutputDepth() << endl;
+                    ss << i << ") layer: [w,h,d] -> in_dims [" << il->getInputWidth() << ", " << il->getInputHeight() << ", " << il->getInputDepth() << "] | ";
+                    ss << "out_dims [" << il->getOutputWidth() << ", " << il->getOutputHeight() << ", " << il->getOutputDepth() << "]" << endl;
                 }
                 break;
             }
@@ -117,8 +117,8 @@ void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool d
                 ConvolutionLayer *cl = (ConvolutionLayer *) layers.at(i);
                 if (cl != NULL) {
                     cout << cl->toString();
-                    ss << i << ") layer: " << cl->getName() << ", size: W = " << cl->getOutputWidth() << ", H = " <<
-                    cl->getOutputHeight() << ", D = " << cl->getOutputDepth() << endl;
+                    ss << i << ") layer: [w,h,d] -> in_dims [" << cl->getInputWidth() << ", " << cl->getInputHeight() << ", " << cl->getInputDepth() << "] | ";
+                    ss << "out_dims [" << cl->getOutputWidth() << ", " << cl->getOutputHeight() << ", " << cl->getOutputDepth() << "]" << endl;
                 }
                 break;
             }
@@ -127,8 +127,8 @@ void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool d
                 PoolingLayer *pl = (PoolingLayer *) layers.at(i);
                 if (pl != NULL) {
                     cout << pl->toString();
-                    ss << i << ") layer: " << pl->getName() << ", size: W = " << pl->getOutputWidth() << ", H = " <<
-                    pl->getOutputHeight() << ", D = " << pl->getOutputDepth() << endl;
+                    ss << i << ") layer: [w,h,d] -> in_dims [" << pl->getInputWidth() << ", " << pl->getInputHeight() << ", " << pl->getInputDepth() << "] | ";
+                    ss << "out_dims [" << pl->getOutputWidth() << ", " << pl->getOutputHeight() << ", " << pl->getOutputDepth() << "]" << endl;
                 }
                 break;
             }
@@ -137,8 +137,8 @@ void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool d
                 ReLULayer *rl = (ReLULayer *) layers.at(i);
                 if (rl != NULL) {
                     cout << rl->toString();
-                    ss << i << ") layer: " << rl->getName() << ", size: W = " << rl->getOutputWidth() << ", H = " <<
-                    rl->getOutputHeight() << ", D = " << rl->getOutputDepth() << endl;
+                    ss << i << ") layer: [w,h,d] -> in_dims [" << rl->getInputWidth() << ", " << rl->getInputHeight() << ", " << rl->getInputDepth() << "] | ";
+                    ss << "out_dims [" << rl->getOutputWidth() << ", " << rl->getOutputHeight() << ", " << rl->getOutputDepth() << "]" << endl;
                 }
                 break;
             }
@@ -147,8 +147,8 @@ void displayPrototxtOutput(UserInput in, std::vector<LayerBase *> layers, bool d
                 InnerProductLayer *ipl = (InnerProductLayer *) layers.at(i);
                 if (ipl != NULL) {
                     cout << ipl->toString();
-                    ss << i << ") layer: " << ipl->getName() << ", size: W = " << ipl->getOutputWidth() << ", H = " <<
-                    ipl->getOutputHeight() << ", D = " << ipl->getOutputDepth() << endl;
+                    ss << i << ") layer: [w,h,d] -> in_dims [" << ipl->getInputWidth() << ", " << ipl->getInputHeight() << ", " << ipl->getInputDepth() << "] | ";
+                    ss << "out_dims [" << ipl->getOutputWidth() << ", " << ipl->getOutputHeight() << ", " << ipl->getOutputDepth() << "]" << endl;
                 }
                 break;
             }

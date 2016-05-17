@@ -10,7 +10,9 @@ UserInput::UserInput(bool withInputFile) {
     init();
 
 #ifdef DEBUG
+
     debug();
+
 #else
 
     if (!getInputDimensions(withInputFile)) {
