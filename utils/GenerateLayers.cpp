@@ -44,6 +44,7 @@ void GenerateLayers::buildLayerList() {
         layers.push_back(in);
     }
 
+    int N, M, K = mNumFullyConnLayers - 1, j;
     switch ( mNetworkMode ) {
 
         case AUTOMATIC: {
@@ -51,14 +52,13 @@ void GenerateLayers::buildLayerList() {
             /**
              * Follow pattern:
              * INPUT -> [[CONV -> RELU]*N -> POOL?]*M -> [FC -> RELU]*K -> FC
-             *  - K:
-             *  - M:
              *  - N:
+             *  - M:
+             *  - K:
              * always do at least 1 fully connected layer (linear classifier)
              * N >= 0, usually N <= 3, M >= 0, K >= 0 (and usually K < 3).
              */
             std::random_device rd;
-            int N, M, K = mNumFullyConnLayers - 1, j;
             if ( mNumConvLayers > 0 ) {
                 N = rd() % mNumConvLayers;
                 M = mNumConvLayers / N;
@@ -68,8 +68,9 @@ void GenerateLayers::buildLayerList() {
 
             for ( i = 0; i < M; ++i ) {
                 for ( j = 0; j < N; ++j ) {
-                    ConvolutionLayer *c = buildConvolutionLayer(size, mConvFilterSize, mNumInputChannels);
-                    ReLULayer *r = buildReLULayer(c->getOutputWidth());
+                    ConvolutionLayer *c = buildConvolutionLayer(size, size, mConvFilterSize, mNumInputChannels);
+//                    ReLULayer *r = buildReLULayer(c->getOutputWidth());
+                    ReLULayer *r = buildReLULayer(c->getOutputWidth(), c->getOutputHeight(), c->getOutputDepth());
                     layers.push_back(c);
                     layers.push_back(r);
                 }
@@ -79,6 +80,7 @@ void GenerateLayers::buildLayerList() {
                 size = p->getOutputWidth();
             }
 
+            /*
             for ( i = 0; i < K; ++i ) {
                 InnerProductLayer *ip = buildInnerProductLayer(size, size);
                 ReLULayer *r = buildReLULayer(size);
@@ -88,7 +90,7 @@ void GenerateLayers::buildLayerList() {
 
             InnerProductLayer *ip = buildInnerProductLayer(size, size, 1, mOutputDim);
             layers.push_back(ip);
-
+            */
             break;
         }
 
@@ -96,22 +98,22 @@ void GenerateLayers::buildLayerList() {
 
             /**
              * Follow pattern:
-             * INPUT -> {[CONV -> RELU -> POOL] * K } -> {[CONV -> RELU] * M } -> { [FC -> RELU] * N } -> FC
-             *  - K: variable, determined based on the requested minimization ratio percentage
+             * INPUT -> {[CONV -> RELU -> POOL] * N } -> {[CONV -> RELU] * M } -> { [FC -> RELU] * K } -> FC
+             *  - N: variable, determined based on the requested minimization ratio percentage
              *  - M: variable, leftover convolutions are chained, followed by relu
-             *  - N: number of fully connected layers requested - 1
+             *  - K: number of fully connected layers requested - 1
              *  always do at least 1 fully connected layer
              */
 
             double ratio = size / (double) mInputHeight;
-            int M = mNumConvLayers, N = mNumFullyConnLayers - 1;
+            M = mNumConvLayers;
 
             while ( ratio >= mThreshold ) {
                 if ( mNumConvUsed < mNumConvLayers ) {
-                    ConvolutionLayer *c = buildConvolutionLayer(size, mConvFilterSize, mNumInputChannels);
-                    ReLULayer *r = buildReLULayer(size);
+                    ConvolutionLayer *c = buildConvolutionLayer(size, size, mConvFilterSize, mNumInputChannels);
+//                    ReLULayer *r = buildReLULayer(size);
+                    ReLULayer *r = buildReLULayer(c->getOutputWidth(), c->getOutputHeight(), c->getOutputDepth());
                     layers.push_back(c);
-
                     layers.push_back(r);
                 }
                 PoolingLayer *p = buildPoolingLayerMax2by2(size);
@@ -121,13 +123,15 @@ void GenerateLayers::buildLayerList() {
             }
 
             for ( i = mNumConvUsed; i < M; ++i ) {
-                ConvolutionLayer *c = buildConvolutionLayer(size, mConvFilterSize, mNumInputChannels);
-                ReLULayer *r = buildReLULayer(size);
+                ConvolutionLayer *c = buildConvolutionLayer(size, size, mConvFilterSize, mNumInputChannels);
+//                ReLULayer *r = buildReLULayer(size);
+                ReLULayer *r = buildReLULayer(c->getOutputWidth(), c->getOutputHeight(), c->getOutputDepth());
                 layers.push_back(c);
                 layers.push_back(r);
             }
 
-            for ( i = 0; i < N; ++i ) {
+            /*
+            for ( i = 0; i < K; ++i ) {
                 InnerProductLayer *ip = buildInnerProductLayer(size, size);
                 ReLULayer *r = buildReLULayer(size);
                 layers.push_back(ip);
@@ -136,10 +140,26 @@ void GenerateLayers::buildLayerList() {
 
             InnerProductLayer *ip = buildInnerProductLayer(size, size, 1, mOutputDim);
             layers.push_back(ip);
-
+            */
             break;
         }
     }
+
+    int in_w, in_h, in_d, out_w = 1, out_h = 1, out_d = mOutputDim;
+    for ( i = 0; i < K; ++i ) {
+        in_w = layers.back()->getOutputWidth();
+        in_h = layers.back()->getOutputHeight();
+        in_d = layers.back()->getOutputDepth();
+        InnerProductLayer *ip = buildInnerProductLayer(in_w, in_h, in_d, out_w, out_h, out_d);
+//        ReLULayer *r = buildReLULayer(size);
+        ReLULayer *r = buildReLULayer(ip->getOutputWidth(), ip->getOutputHeight(), ip->getOutputDepth());
+        layers.push_back(ip);
+        layers.push_back(r);
+    }
+
+//    InnerProductLayer *ip = buildInnerProductLayer(size, size, 1, mOutputDim);
+    InnerProductLayer *ip = buildInnerProductLayer(layers.back()->getOutputWidth(), layers.back()->getOutputHeight(), layers.back()->getOutputDepth(), 1, 1, mOutputDim);
+    layers.push_back(ip);
 
     mLayerList = layers;
 }
@@ -156,9 +176,12 @@ InputLayer* GenerateLayers::buildInputLayer() {
  *  P = (F - 1) / 2
  */
 ConvolutionLayer* GenerateLayers::buildConvolutionLayer(int in_size, int f_size, int depth) {
+    std::stringstream ss;
+    ss << "conv" << ++mNumConvUsed;
+
     int p = checkConvPadding(f_size);
     if ( p < 0) {
-        std::cerr << "Error: incompatible filter size for convolution layer!" << std::endl;
+        std::cerr << "Error: incompatible filter size for convolution layer <" << ss.str() << ">" << std::endl;
         std::cerr.flush();
         return nullptr;
     }
@@ -166,13 +189,35 @@ ConvolutionLayer* GenerateLayers::buildConvolutionLayer(int in_size, int f_size,
     int s = 1;
     int W2 = ( (in_size - f_size + 2*p ) / s ) + 1;
 
-    std::stringstream ss;
-    ss << "conv" << ++mNumConvUsed;
     ConvolutionLayer *convolutionLayer = new ConvolutionLayer(ss.str(), depth, p, f_size, s);
     convolutionLayer->setInputWidth(W2);
     convolutionLayer->setInputHeight(W2);
     convolutionLayer->setOutputWidth(W2);
     convolutionLayer->setOutputHeight(W2);
+
+    return convolutionLayer;
+}
+
+ConvolutionLayer* GenerateLayers::buildConvolutionLayer(int in_width, int in_height, int f_size, int depth) {
+    std::stringstream ss;
+    ss << "conv" << ++mNumConvUsed;
+
+    int p = checkConvPadding(f_size);
+    if ( p < 0) {
+        std::cerr << "Error: incompatible filter size for convolution layer <" << ss.str() << ">" << std::endl;
+        std::cerr.flush();
+        return nullptr;
+    }
+
+    int s = 1, W1 = in_width, H1 = in_height;
+    int W2 = ( (W1 - f_size + 2*p ) / s ) + 1;
+    int H2 = ( (H1 - f_size + 2*p) / s ) + 1;
+
+    ConvolutionLayer *convolutionLayer = new ConvolutionLayer(ss.str(), depth, p, f_size, s);
+    convolutionLayer->setInputWidth(W1);
+    convolutionLayer->setInputHeight(H1);
+    convolutionLayer->setOutputWidth(W2);
+    convolutionLayer->setOutputHeight(H2);
 
     return convolutionLayer;
 }
@@ -235,6 +280,21 @@ ReLULayer* GenerateLayers::buildReLULayer(int in_size) {
     return reLULayer;
 }
 
+ReLULayer* GenerateLayers::buildReLULayer(int width, int height, int depth) {
+    std::stringstream ss;
+    ss << "relu" << ++mNumReluUsed;
+
+    ReLULayer *reLULayer = new ReLULayer(ss.str());
+    reLULayer->setInputHeight(height);
+    reLULayer->setInputWidth(width);
+    reLULayer->setInputDepth(depth);
+    reLULayer->setOutputHeight(height);
+    reLULayer->setOutputWidth(width);
+    reLULayer->setOutputDepth(depth);
+
+    return reLULayer;
+}
+
 InnerProductLayer* GenerateLayers::buildInnerProductLayer(int in_size, int out_size) {
     std::stringstream ss;
     ss << "fc" << ++mNumFullyConnUsed;
@@ -254,6 +314,17 @@ InnerProductLayer* GenerateLayers::buildInnerProductLayer(int in_width, int in_h
     ss << "fc" << ++mNumFullyConnUsed;
 
     InnerProductLayer *innerProductLayer = new InnerProductLayer(ss.str(), in_width, in_height, out_width, out_height);
+
+    return innerProductLayer;
+}
+
+InnerProductLayer* GenerateLayers::buildInnerProductLayer(int in_width, int in_height, int in_depth, int out_width, int out_height, int out_depth) {
+    std::stringstream ss;
+    ss << "fc" << ++mNumFullyConnUsed;
+
+    InnerProductLayer *innerProductLayer = new InnerProductLayer(ss.str(), in_width, in_height, out_width, out_height);
+    innerProductLayer->setInputDepth(in_depth);
+    innerProductLayer->setOutputDepth(out_depth);
 
     return innerProductLayer;
 }
