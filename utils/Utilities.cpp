@@ -196,15 +196,22 @@ uint8_t* getImageAtOffset(UserInput in, int batch_size, int batch_num) {
     const int size = batch_size * image_size;
     char *imageArray = NULL;
 
+    cout << "getImageAtOffset() for batch_num: " << batch_num << endl;
+
     ifstream reader(file, std::ifstream::binary);
 
     if ( !reader ) {
         cerr << "Error opening input file <" << file << ">" << endl;
         cerr.flush();
     } else {
-        imageArray = new char[size];
-        reader.read(imageArray + batch_num*image_size + 1, size);
+        try {
+            imageArray = new char[size];
+            reader.read(imageArray + batch_num * image_size + 1, size);
+        } catch (const std::exception &ia) {
+            cerr << "Invalid argument: " << ia.what() << endl;
+        }
         reader.close();
+
     }
 
     return (uint8_t *) imageArray;

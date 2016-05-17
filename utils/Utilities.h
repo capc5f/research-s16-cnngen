@@ -7,6 +7,7 @@
 
 #include <fstream>
 #include <vector>
+#include <stdexcept>
 
 #include "../layers/LayerBase.h"
 #include "../layers/InputLayer.h"
