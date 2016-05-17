@@ -37,6 +37,7 @@ private:
     int mThresholdPercent;
 
     void init();
+    void debug();
     bool getNetworkCharacteristics();
     bool getInputDimensions(bool withInputFile);
     bool getPrototxt();

@@ -6,11 +6,15 @@ C_FLAGS = -std=c++11
 LAYER_DIR = ../layers/
 LAYER_HELPER_DIR = ../layers/layer_helpers/
 UTILS = ../utils/
+DEBUG = -D DEBUG
 
 all:	main
 
 clean:
 	rm nn_setup
+
+debug: LayerBase ConvolutionLayer InnerProductLayer InputLayer PoolingLayer ReLULayer Param Utilities UserInput GenerateLayers LRNLayer SoftmaxLayer
+	$(NVCC) $(LINK) $(C_FLAGS) $(DEBUG) -o nn_setup NNsetup.cu LayerBase.o ConvolutionLayer.o InnerProductLayer.o InputLayer.o PoolingLayer.o ReLULayer.o Param.o Utilities.o UserInput.o GenerateLayers.o LRNLayer.o SoftmaxLayer.o
 
 main: LayerBase ConvolutionLayer InnerProductLayer InputLayer PoolingLayer ReLULayer Param Utilities UserInput GenerateLayers LRNLayer SoftmaxLayer
 	$(NVCC) $(LINK) $(C_FLAGS) -o nn_setup NNsetup.cu LayerBase.o ConvolutionLayer.o InnerProductLayer.o InputLayer.o PoolingLayer.o ReLULayer.o Param.o Utilities.o UserInput.o GenerateLayers.o LRNLayer.o SoftmaxLayer.o

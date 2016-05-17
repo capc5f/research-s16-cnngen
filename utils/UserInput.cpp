@@ -9,6 +9,10 @@ using namespace std;
 UserInput::UserInput(bool withInputFile) {
     init();
 
+#ifdef DEBUG
+    debug();
+#else
+
     if (!getInputDimensions(withInputFile)) {
         mIsValidInput = false;
         return;
@@ -25,6 +29,7 @@ UserInput::UserInput(bool withInputFile) {
         cin >> mNetworkName;
         mHasNetworkName = true;
     }
+#endif
 }
 
 UserInput::~UserInput() {
@@ -37,6 +42,21 @@ void UserInput::init() {
     mHasNetworkName = false;
     mNetworkName = "generated_cnn";
     mNumberInput = 1;
+}
+
+void UserInput::debug() {
+    mInputWidth = 32;
+    mInputHeight = 32;
+    mNumInputChannels = 3;
+    mNumberInput = 3;
+    mNumConvLayers = 3;
+    mConvFilterSize = 3;
+    mNumFullyConnLayers = 3;
+    mOutputDim = 10;
+    setBatchSize(128);
+    mNetworkMode = AUTOMATIC;
+    mGeneratePrototxt = true;
+    mIsValidInput = true;
 }
 
 bool UserInput::isValidInput() {
