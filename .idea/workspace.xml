@@ -13,7 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="042a7085-13ef-4c4f-a1ac-00d99bb3b05d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/Utilities.cpp" afterPath="$PROJECT_DIR$/utils/Utilities.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/UserInput.cpp" afterPath="$PROJECT_DIR$/utils/UserInput.cpp" />
     </list>
     <ignored path="Research_S16.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,11 +36,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.84000003">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="UserInput.cpp" pinned="false" current-in-tab="false">
+          <file leaf-file-name="UserInput.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/utils/UserInput.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="176" column="9" selection-start-line="173" selection-start-column="10" selection-end-line="176" selection-end-column="9" />
+                <state relative-caret-position="240">
+                  <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
                   <folding>
                     <element signature="e#181#282#0" expanded="true" />
                   </folding>
@@ -101,11 +101,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Utilities.cpp" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Utilities.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/utils/Utilities.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="447">
-                  <caret line="234" column="21" selection-start-line="234" selection-start-column="21" selection-end-line="234" selection-end-column="21" />
+                <state relative-caret-position="222">
+                  <caret line="219" column="18" selection-start-line="219" selection-start-column="18" selection-end-line="219" selection-end-column="18" />
                   <folding />
                 </state>
               </provider>
@@ -224,9 +224,9 @@
         <option value="$PROJECT_DIR$/ece8270project/ImageBatch.h" />
         <option value="$PROJECT_DIR$/ece8270project/Image.h" />
         <option value="$PROJECT_DIR$/ece8270project/ImageBatch.cpp" />
-        <option value="$PROJECT_DIR$/utils/UserInput.cpp" />
         <option value="$PROJECT_DIR$/utils/Utilities.h" />
         <option value="$PROJECT_DIR$/utils/Utilities.cpp" />
+        <option value="$PROJECT_DIR$/utils/UserInput.cpp" />
       </list>
     </option>
   </component>
@@ -238,7 +238,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="840" />
+    <option name="width" value="1680" />
     <option name="height" value="1023" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -755,14 +755,21 @@
       <option name="project" value="LOCAL" />
       <updated>1463464664439</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="remove print statements..">
+      <created>1463464882438</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1463464882438</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="840" height="1023" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="1023" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2547619" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12738095" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19077568" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -812,7 +819,8 @@
     <MESSAGE value="add ImageBatches.. prepare to read input, include cifar-10 data" />
     <MESSAGE value="change batches from list to vector" />
     <MESSAGE value="help out josh with UserInput::debug()" />
-    <option name="LAST_COMMIT_MESSAGE" value="help out josh with UserInput::debug()" />
+    <MESSAGE value="remove print statements.." />
+    <option name="LAST_COMMIT_MESSAGE" value="remove print statements.." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1210,16 +1218,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/UserInput.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="176" column="9" selection-start-line="173" selection-start-column="10" selection-end-line="176" selection-end-column="9" />
-          <folding>
-            <element signature="e#181#282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/UserInput.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1238,9 +1236,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/Utilities.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="234" column="21" selection-start-line="234" selection-start-column="21" selection-end-line="234" selection-end-column="21" />
+        <state relative-caret-position="222">
+          <caret line="219" column="18" selection-start-line="219" selection-start-column="18" selection-end-line="219" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/UserInput.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="e#181#282#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

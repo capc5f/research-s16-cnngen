@@ -53,7 +53,7 @@ void UserInput::init() {
 
 void UserInput::debug() {
     int batch_size = 128;
-    int num_batches = 4;
+    int num_batches = 78;
 
     mInputWidth = 32;
     mInputHeight = 32;
