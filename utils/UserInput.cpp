@@ -71,6 +71,16 @@ void UserInput::debug() {
     mHasInputFilename = true;
     mInputFilename = "../ece8270project/test_batch.bin";
     mNumberInput = batch_size * num_batches;
+
+    ifstream myfile(mInputFilename);
+
+    if (myfile.is_open()) {
+        myfile.close();
+    } else {
+        cerr << "Unable to open file <" << mInputFilename << ">" << endl;
+        cerr.flush();
+        exit(EXIT_FAILURE);
+    }
 }
 
 bool UserInput::isValidInput() {
