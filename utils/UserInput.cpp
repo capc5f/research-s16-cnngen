@@ -75,6 +75,7 @@ void UserInput::debug() {
     ifstream myfile(mInputFilename);
 
     if (myfile.is_open()) {
+        cout << "Successfully found input file <" << mInputFilename << ">!" << endl;
         myfile.close();
     } else {
         cerr << "Unable to open file <" << mInputFilename << ">" << endl;
