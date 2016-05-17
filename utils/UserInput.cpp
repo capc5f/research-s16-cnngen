@@ -35,7 +35,7 @@ void UserInput::init() {
     mHasInputFilename = false;
     mIsValidInput = true;
     mHasNetworkName = false;
-
+    mNetworkName = "generated_cnn";
     mNumberInput = 1;
 }
 
