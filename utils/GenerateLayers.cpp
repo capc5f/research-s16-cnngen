@@ -63,7 +63,10 @@ void GenerateLayers::buildLayerList() {
             std::random_device rd;
             if ( mNumConvLayers > 0 ) {
                 N = rd() % mNumConvLayers;
-                M = mNumConvLayers / N;
+                if ( N > 0 )
+                    M = mNumConvLayers / N;
+                else
+                    M = mNumConvLayers;
             } else {
                 M = N = 0;
             }
