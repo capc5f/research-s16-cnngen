@@ -222,7 +222,7 @@ std::vector<ImageBatch *> buildBatchList(UserInput in, int batch_size) {
         uint8_t* data = getImageAtOffset(in, batch_size, i);
         cout << "Got image data #" << i << endl;
         ImageBatch *ib = new ImageBatch(image_size, data);
-        cout << "Made ImageBatch obj #" << ib->getBatchId();
+        cout << "Made ImageBatch obj #" << ib->getBatchId() << endl;
         batchList.push_back(ib);
     }
 
